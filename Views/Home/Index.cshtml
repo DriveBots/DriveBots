@@ -1,16 +1,96 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drivebots</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome To DriveBots Licensing System</h1>
-    <p>Learn about DriveBots Botswana Gaborone Botswana gaborone <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    @Html.ActionLink("Login", "Login", "Home")
-    @Html.ActionLink("About Us", "AboutUs", "Home")
-    @Html.ActionLink("Admin", "Admin", "Home")
-    @Html.ActionLink("Applicant", "Applicant", "Home")
-    @Html.ActionLink("Application Page", "ApplicationPage", "Home")
-    @Html.ActionLink("Services", "Services", "Home")
-    @Html.ActionLink("SignUp", "SignUp", "Home")
+    <nav class="navbar">
+        <div class="logo">Drivebots</div>
+        <ul class="nav-links">
+            <li><a href="./Index.cshtml" class="active">Home</a></li>
+            <li><a href="./Services.cshtml">Services</a></li>
+            <li><a href="./AboutUs.cshtml">About Us</a></li>
+            <li><a href="./ContactUs.cshtml">Contact Us</a></li>
+            <li><a href="./Login.cshtml">Login</a></li>
+        </ul>
+    </nav>
 
-</div>
+    <header class="hero">
+        <div class="hero-content">
+            <h2>Your one-stop solution for license creation, renewal, and online transport services.</h2>
+            <h1>Welcome to Drivebots</h1>
+            <button class="btn">Book Now</button>
+        </div>
+    </header>
+
+    <section class="services">
+        <h2>Our Comprehensive Services</h2>
+        <p>Discover the variety of services we offer to meet your licensing and transport needs.</p>
+
+        <div class="service-box">
+            <img src="license.jpg" alt="License">
+            <div class="service-info">
+                <h3>License Creation Services</h3>
+                <p>We provide comprehensive services for creating new licenses, tailored to meet your specific requirements.</p>
+                <button class="btn">Explore</button>
+            </div>
+        </div>
+
+        <div class="service-box reverse">
+            <img src="license-renew.jpg" alt="License Renewal">
+            <div class="service-info">
+                <h3>License Renewal Solutions</h3>
+                <p>Drivebots takes the hassle out of license renewals. Our online system ensures your documents remain valid and up to date.</p>
+                <button class="btn">Renew</button>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="application-process">
+        <h2>Application Process</h2>
+        <p>Follow these simple steps to get started with your licensing process.</p>
+
+        <div class="process-steps">
+            <div class="step">
+                <img src="step1.jpg" alt="Step 1">
+                <h3>Step 1: Register</h3>
+                <p>Create an account to start your application process.</p>
+            </div>
+            <div class="step">
+                <img src="step2.jpg" alt="Step 2">
+                <h3>Step 2: Submit Documents</h3>
+                <p>Upload required documents for verification.</p>
+            </div>
+            <div class="step">
+                <img src="step3.jpg" alt="Step 3">
+                <h3>Step 3: Make Payment</h3>
+                <p>Securely make payments online.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-box">
+            <p>"Drivebots made my license renewal process so easy! Highly recommended."</p>
+            <h4>- John Doe</h4>
+        </div>
+        <div class="testimonial-box">
+            <p>"Fast and efficient service. I got my learner's license in no time!"</p>
+            <h4>- Jane Smith</h4>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Drivebots. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
