@@ -1,68 +1,66 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Services";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Drivebots</title>
+    <title>Our Services - DriveBots</title>
     <link rel="stylesheet" href="site.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">Drivebots</div>
-        <ul class="nav-links">
-            <li><a href="./Index.cshtml" class="active">Home</a></li>
-            <li><a href="./Services.cshtml" class="active">Services</a></li>>Services</a></li>
-            <li><a href="./AboutUs.cshtml">About Us</a></li>
-            <li><a href="./ContactUs.cshtml">Contact Us</a></li>
-            <li><a href="./Login.cshtml">Login</a></li>
-        </ul>
-    </nav>
-
     <header class="hero services-hero">
         <div class="hero-content">
             <h1>Our Services</h1>
-            <p>Explore our range of services designed to simplify licensing and transport solutions.</p>
+            <p>Effortlessly manage your vehicle and licensing needs with our streamlined digital services.</p>
         </div>
     </header>
 
     <section class="services-list">
+        <!-- Service 1: Driver's License Application -->
         <div class="service-item">
-            <img src="license.jpg" alt="License Services">
+            <img src="license-application.jpg" alt="Driver's License Application">
             <div class="service-text">
-                <h3>License Creation</h3>
-                <p>We assist you in obtaining a valid driving license efficiently and hassle-free.</p>
-                <button class="btn">Learn More</button>
+                <h3>Driver’s License Application</h3>
+                <p>Apply for your learner’s or driver’s license through our digital platform, minimizing paperwork and reducing processing time. Track your application in real-time and schedule tests at your convenience.</p>
             </div>
         </div>
 
+        <!-- Service 2: License Renewal -->
         <div class="service-item reverse">
-            <img src="license-renew.jpg" alt="License Renewal">
+            <img src="license-renewal.jpg" alt="License Renewal">
             <div class="service-text">
                 <h3>License Renewal</h3>
-                <p>Renew your license quickly through our seamless online process.</p>
-                <button class="btn">Renew Now</button>
+                <p>Renew your driver’s license with ease. Our online system ensures a smooth renewal process by allowing you to submit applications, make secure payments, and receive confirmation without visiting an office.</p>
             </div>
         </div>
 
+        <!-- Service 3: Vehicle Registration -->
         <div class="service-item">
-            <img src="transport.jpg" alt="Transport Services">
+            <img src="vehicle-registration.jpg" alt="Vehicle Registration">
             <div class="service-text">
-                <h3>Online Transport Services</h3>
-                <p>Book reliable transport services at the touch of a button.</p>
-                <button class="btn">Book Now</button>
+                <h3>Vehicle Registration</h3>
+                <p>Register your vehicle online and eliminate long queues. Our system automates data entry, ensures accuracy, and provides instant updates on your registration status.</p>
             </div>
         </div>
 
+        <!-- Service 4: Real-Time Status Tracking -->
         <div class="service-item reverse">
-            <img src="road-safety.jpg" alt="Road Safety Training">
+            <img src="status-tracking.jpg" alt="Real-Time Application Tracking">
             <div class="service-text">
-                <h3>Road Safety Training</h3>
-                <p>Get educated on road safety rules and regulations to drive responsibly.</p>
-                <button class="btn">Enroll Now</button>
+                <h3>Real-Time Status Tracking</h3>
+                <p>Stay updated on your application progress with real-time tracking. Whether it's a license, renewal, or vehicle registration, our platform keeps you informed at every step.</p>
             </div>
         </div>
     </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Drivebots. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
