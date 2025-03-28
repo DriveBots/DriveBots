@@ -1,11 +1,7 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="site.css">
-</head>
+﻿@{
+    ViewData["Title"] = "SignUp";
+}
+
 <body>
     <div class="auth-container">
         <div class="auth-box">
@@ -14,19 +10,15 @@
             <form action="#">
                 <label for="fullname">What should we call you?</label>
                 <input type="text" id="fullname" placeholder="Enter your full name" required>
-
                 <label for="email">What’s your email?</label>
                 <input type="email" id="email" placeholder="Enter your email address" required>
-
                 <label for="password">Create a password</label>
                 <input type="password" id="password" placeholder="Enter your password" required>
                 <p class="password-hint">Use 8 or more characters with a mix of letters, numbers & symbols</p>
-
                 <p class="terms">By creating an account, you agree to the <a href="#">Terms of use</a> and <a href="#">Privacy Policy</a>.</p>
-
                 <button type="submit" class="btn">Create an account</button>
             </form>
         </div>
     </div>
+
 </body>
-</html>
