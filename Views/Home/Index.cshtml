@@ -11,7 +11,9 @@
         <div class="hero-content">
             <h2>Your one-stop solution for license creation, renewal, and online transport services.</h2>
             <h1>Welcome to Drivebots</h1>
-            <button class="btn">Book Now</button>
+            <a href="@Url.Action("ApplicationPage", "Home")" class="btn btn-primary">
+                Book Now
+            </a>
         </div>
     </header>
 
@@ -74,9 +76,9 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Drivebots. All rights reserved.</p>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - DriveBots - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
