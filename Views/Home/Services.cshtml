@@ -1,56 +1,78 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Drivebots</title>
-    <link rel="stylesheet" href="site.css">
-</head>
+﻿@{
+    ViewData["Title"] = "Services";
+}
+
 <body>
+
     <header class="hero services-hero">
         <div class="hero-content">
             <h1>Our Services</h1>
-            <p>Explore our range of services designed to simplify licensing and transport solutions.</p>
+            <p>Effortlessly manage your vehicle and licensing needs with our streamlined digital services.</p>
         </div>
     </header>
 
     <section class="services-list">
+        <!-- Service 1: Driver's License Application -->
         <div class="service-item">
-            <img src="license.jpg" alt="License Services">
+            <img src="license-application.jpg" alt="Driver's License Application">
             <div class="service-text">
-                <h3>License Creation</h3>
-                <p>We assist you in obtaining a valid driving license efficiently and hassle-free.</p>
-                <button class="btn">Learn More</button>
+                <h3>Driver’s License Application</h3>
+                <p>Apply for your learner’s or driver’s license through our digital platform, minimizing paperwork and reducing processing time. Track your application in real-time and schedule tests at your convenience.</p>
             </div>
         </div>
 
+        <!-- Service 2: License Renewal -->
         <div class="service-item reverse">
-            <img src="license-renew.jpg" alt="License Renewal">
+            <img src="license-renewal.jpg" alt="License Renewal">
             <div class="service-text">
                 <h3>License Renewal</h3>
-                <p>Renew your license quickly through our seamless online process.</p>
-                <button class="btn">Renew Now</button>
+                <p>Renew your driver’s license with ease. Our online system ensures a smooth renewal process by allowing you to submit applications, make secure payments, and receive confirmation without visiting an office.</p>
             </div>
         </div>
 
+        <!-- Service 3: Vehicle Registration -->
         <div class="service-item">
-            <img src="transport.jpg" alt="Transport Services">
+            <img src="vehicle-registration.jpg" alt="Vehicle Registration">
             <div class="service-text">
-                <h3>Online Transport Services</h3>
-                <p>Book reliable transport services at the touch of a button.</p>
-                <button class="btn">Book Now</button>
+                <h3>Vehicle Registration</h3>
+                <p>Register your vehicle online and eliminate long queues. Our system automates data entry, ensures accuracy, and provides instant updates on your registration status.</p>
             </div>
         </div>
 
+        <!-- Service 4: Real-Time Status Tracking -->
         <div class="service-item reverse">
-            <img src="road-safety.jpg" alt="Road Safety Training">
+            <img src="status-tracking.jpg" alt="Real-Time Application Tracking">
             <div class="service-text">
-                <h3>Road Safety Training</h3>
-                <p>Get educated on road safety rules and regulations to drive responsibly.</p>
-                <button class="btn">Enroll Now</button>
+                <h3>Real-Time Status Tracking</h3>
+                <p>Stay updated on your application progress with real-time tracking. Whether it's a license, renewal, or vehicle registration, our platform keeps you informed at every step.</p>
             </div>
         </div>
     </section>
 
-</body>
-</html>
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <p>Your Questions Answered</p>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">What types of licenses can I create? <span class="toggle-icon">+</span></button>
+                <div class="faq-answer">
+                    <p>At DriveBots, we offer a comprehensive array of license creation services. You can create personal, commercial, and specialized licenses tailored to your needs. Our platform is designed to guide you through the requirements for each type, ensuring that you have all the necessary documentation for a successful application.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How do I renew my license? <span class="toggle-icon">+</span></button>
+                <div class="faq-answer">
+                    <p>Renewing your license is a simple process at DriveBots. You can complete your renewal application online by providing your current license details and uploading necessary documents. We offer reminders to keep you updated on your renewal status and deadlines, making the process streamlined and stress-free.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Can I queue for transport services online? <span class="toggle-icon">+</span></button>
+                <div class="faq-answer">
+                    <p>Yes, DriveBots offers an online queuing system for transport services. You can easily book your spot in line and manage your waiting time through our platform. With real-time updates, you will always know your position in the queue and can plan your schedule accordingly, ensuring a hassle-free experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
