@@ -736,3 +736,115 @@ body {
     color: #ddd;
     border-top: 1px solid #007bff;
 }
+
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Dark Background */
+body {
+    background-color: #2C2F33;
+    color: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3A3D42;
+    padding: 15px 20px;
+}
+
+    .navbar .logo {
+        color: #00aaff;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+    .nav-links li {
+        margin-right: 20px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 16px;
+        transition: color 0.3s ease;
+    }
+
+        .nav-links a:hover {
+            color: #00aaff;
+        }
+
+/* Application Form Container */
+.form-container {
+    background: #3A3D42; /* Same as Login Box */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+    margin: 50px auto;
+}
+
+/* Form Fields */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+    .input-group label {
+        display: block;
+        font-size: 14px;
+        color: #b0b3b8;
+        margin-bottom: 5px;
+    }
+
+    .input-group input,
+    .input-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #00aaff;
+        background: #222;
+        color: #ffffff;
+        border-radius: 5px;
+    }
+
+        .input-group input::placeholder {
+            color: #bbbbbb;
+        }
+
+        .input-group input[type="file"] {
+            padding: 5px;
+        }
+
+/* Submit Button */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #00aaff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+    .btn:hover {
+        background: #0088cc;
+    }
+
+
