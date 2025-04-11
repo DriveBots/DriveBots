@@ -108,7 +108,8 @@ namespace DriveBots.Controllers
                         claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var authProperties = new AuthenticationProperties
                     {
-                        IsPersistent = model.RememberMe
+                        IsPersistent = model.RememberMe, // Persistent cookie if "Remember me" checked
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddDays(30) // 30-day cookie
                     };
 
                     await HttpContext.SignInAsync(
@@ -116,10 +117,7 @@ namespace DriveBots.Controllers
                         new ClaimsPrincipal(claimsIdentity),
                         authProperties);
 
-                    if (!string.IsNullOrEmpty(returnUrl))
-                        return LocalRedirect(returnUrl);
-                    else
-                        return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Applicant", "Home"); // Redirect to dashboard
                 }
                 ModelState.AddModelError(string.Empty, "Invalid login attempt");
             }
