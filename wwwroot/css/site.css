@@ -408,6 +408,7 @@ input[type="file"] {
     color: #155724;
     border: 1px solid #c3e6cb;
 }
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -522,4 +523,6 @@ body {
         .footer a:hover {
             text-decoration: underline;
         }
+
+
  
