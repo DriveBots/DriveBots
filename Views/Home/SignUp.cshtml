@@ -1,24 +1,47 @@
-﻿@{
-    ViewData["Title"] = "SignUp";
+﻿@model DriveBots.Models.SignupModel
+
+@{
+    ViewData["Title"] = "Sign Up";
 }
 
-<body>
-    <div class="auth-container">
-        <div class="auth-box">
-            <h2>Create an account</h2>
-            <p>Already have an account? <a href="login.html">Log in</a></p>
-            <form action="#">
-                <label for="fullname">What should we call you?</label>
-                <input type="text" id="fullname" placeholder="Enter your full name" required>
-                <label for="email">What’s your email?</label>
-                <input type="email" id="email" placeholder="Enter your email address" required>
-                <label for="password">Create a password</label>
-                <input type="password" id="password" placeholder="Enter your password" required>
-                <p class="password-hint">Use 8 or more characters with a mix of letters, numbers & symbols</p>
-                <p class="terms">By creating an account, you agree to the <a href="#">Terms of use</a> and <a href="#">Privacy Policy</a>.</p>
-                <button type="submit" class="btn">Create an account</button>
-            </form>
-        </div>
-    </div>
+<div class="auth-container">
+    <div class="auth-box">
+        <h2>Create an account</h2>
+        <p>Already have an account? <a asp-action="Login">Log in</a></p>
 
-</body>
+        <form asp-action="Signup" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" type="text" placeholder="Enter your first name" required>
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" type="text" placeholder="Enter your last name" required>
+            <span asp-validation-for="LastName" class="text-danger"></span>
+
+            <label asp-for="Email"></label>
+            <input asp-for="Email" type="email" placeholder="Enter your email address" required>
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+            <label asp-for="Password"></label>
+            <input asp-for="Password" type="password" placeholder="Enter your password" required>
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <label asp-for="ConfirmPassword"></label>
+            <input asp-for="ConfirmPassword" type="password" placeholder="Confirm your password" required>
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+            <p class="password-hint">Use 8 or more characters with a mix of letters, numbers & symbols</p>
+            <p class="terms">By creating an account, you agree to the <a href="#">Terms of use</a> and <a href="#">Privacy Policy</a>.</p>
+
+            <button type="submit" class="btn">Create an account</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
