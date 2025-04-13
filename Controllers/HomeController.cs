@@ -73,7 +73,7 @@ namespace DriveBots.Controllers
         }
     }
 
-    public class AccountController : Controller
+    /*public class AccountController : Controller
     {
         // GET: Account/Login
         [HttpGet]
@@ -150,5 +150,5 @@ namespace DriveBots.Controllers
     {
         public string Email { get; set; }
         public string FullName { get; set; }
-    }
+    }*/
 }

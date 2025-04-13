@@ -7,7 +7,15 @@
 <div class="auth-container">
     <div class="auth-box">
         <h2>Log in to your account</h2>
-        <p>Don't have an account? <a asp-action="Register" asp-controller="Account">Sign up now</a></p>
+        <p>
+            Don't have an account? @Html.ActionLink(
+            linkText: "Sign up now",
+            actionName: "SignUp",
+            controllerName: "Home",
+            routeValues: null,
+            htmlAttributes: new { @class = "nav-link text-dark" }
+            )
+        </p>
 
         <form asp-action="Login" asp-controller="Home" method="post">
             <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
