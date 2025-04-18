@@ -1,15 +1,19 @@
-﻿@{
+﻿@model DriveBots.Models.SignupModel
+
+@{
     ViewData["Title"] = "Application Dashboard";
 }
 
-<div class="dashboard">
-    <h1>Welcome, @User.Identity.Name!</h1>
-    <p>Your application dashboard</p>
+@using (Html.BeginForm("SignUp", "SignUp", FormMethod.Post))
+{
+    <div class="dashboard">
+        <h1>Welcome, @User.Identity.Name!</h1>
+        <p>Your application dashboard</p>
+        <!-- Application form or status would go here -->
+        <a asp-action="Apply" asp-controller="Application" class="btn btn-primary">Start New Application</a>
 
-    <!-- Application form or status would go here -->
-    <a asp-action="Apply" asp-controller="Application" class="btn btn-primary">Start New Application</a>
-
-    <form asp-action="Logout" asp-controller="Account" method="post">
-        <button type="submit" class="btn btn-secondary">Logout</button>
-    </form>
-</div>
+        <form asp-action="Logout" asp-controller="Account" method="post">
+            <button type="submit" class="btn btn-secondary">Logout</button>
+        </form>
+    </div>
+}
