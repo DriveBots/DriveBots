@@ -9,7 +9,7 @@ namespace DriveBots.Controllers
     public class AccountController : Controller
     {
 
-        private readonly UserManager<IdentityUser> _userManager;
+        /*private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
 
         public AccountController(
@@ -58,6 +58,17 @@ namespace DriveBots.Controllers
             }
             // If we got this far, something failed, redisplay form
             return View(model);
+        }*/
+
+        //GET SignUp
+        public ActionResult Applicant()
+        {
+            return View("Applicant");
+        }
+
+        public string SignUp (SignupModel signupModel)
+        {
+            return "Results: Username = " + signupModel.Email + "PW = " + signupModel.Password;
         }
     }
 }
