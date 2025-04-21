@@ -1,23 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DriveBots.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using DriveBots.Models;
-using DriveBots.Utilities;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-
 
 namespace DriveBots.Controllers
 {
     public class AccountController : Controller
     {
-
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        // Dependency injection for Identity services
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
         public AccountController(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
             RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
@@ -25,72 +22,121 @@ namespace DriveBots.Controllers
             _roleManager = roleManager;
         }
 
+        // Displays the registration form
         [HttpGet]
-        public IActionResult Register() => View();
+        public IActionResult SignUp()
+        {
+            return View();
+        }
 
+        // Handles registration form submission
         [HttpPost]
         public async Task<IActionResult> Register(SignupModel model)
         {
-            if (ModelState.IsValid)
-            {
-                var user = new IdentityUser { UserName = model.Email, Email = model.Email };
-                var result = await _userManager.CreateAsync(user, model.Password);
-
-                if (result.Succeeded)
-                {
-                    // Assign role "User" by default
-                    if (!await _roleManager.RoleExistsAsync("User"))
-                        await _roleManager.CreateAsync(new IdentityRole("User"));
-
-                    await _userManager.AddToRoleAsync(user, "User");
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
-                }
-
-
-                foreach (var error in result.Errors)
-                    ModelState.AddModelError("", error.Description);
-            }
-            return View(model);
-        }
-
-        [HttpGet]
-        public IActionResult Login() => View();
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
-        {
+            // If the model is invalid, re-render the form with validation messages
             if (!ModelState.IsValid)
-            {
-                // stay on the same page if fields are empty or invalid
-                return View("~/Views/Home/Login.cshtml", model);
-            }
+                return View("~/Views/Home/SignUp.cshtml", model);
 
-            var result = await _signInManager.PasswordSignInAsync(
-                model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+            // Create a new ApplicationUser using provided email and password
+            var user = new ApplicationUser
+            {
+                UserName = model.Email,
+                Email = model.Email,
+                EmailConfirmed = true, // Immediately confirm email for simplicity
+                Address = "Not provided",
+                FirstName = model.FirstName,
+                LastName = model.LastName
+            };
+
+            // Create the user in the database
+            var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
             {
-                var user = await _userManager.FindByEmailAsync(model.Email);
-                var roles = await _userManager.GetRolesAsync(user);
+                // Assign the user to the "User" role
+                await _userManager.AddToRoleAsync(user, "User");
 
-                if (roles.Contains("Admin"))
-                    return RedirectToAction("Admin", "Home");
-                else
-                    return RedirectToAction("Index", "Home");
+                // Sign the user in
+                await _signInManager.SignInAsync(user, isPersistent: false);
+
+                // Redirect to User Dashboard after successful registration
+                return RedirectToAction("Applicant", "Home");
             }
 
-            //Login failed
-            ModelState.AddModelError(string.Empty, "Incorrect username or password");
-            return View("~/Views/Home/Login.cshtml", model); //Stay on same page and show error
+            // Display any errors encountered during user creation
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+
+            return View("Applicant",model);
         }
 
+        // Displays the login form
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        // Handles login form submission
         [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            // Validate the form data
+            if (!ModelState.IsValid)
+                // stay on the same page if fields are empty or invalid
+                return View("~/Views/Home/Login.cshtml", model);
+
+            // Attempt to find the user by email
+            var user = await _userManager.FindByEmailAsync(model.Email);
+
+            if (user == null)
+            {
+                // If user is not found, return invalid login attempt
+                ModelState.AddModelError("", "Invalid username or password");
+                Console.WriteLine("User not found.");
+                return View("~/Views/Home/Login.cshtml", model);
+            }
+
+            // Attempt to sign the user in
+            var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, lockoutOnFailure: false);
+
+            if (result.Succeeded)
+            {
+                Console.WriteLine("Login successful.");
+                // Check user roles and redirect accordingly
+                var roles = await _userManager.GetRolesAsync(user);
+                Console.WriteLine("Roles: " + string.Join(", ", roles));
+                if (roles.Contains("Admin"))
+                {
+                    return RedirectToAction("Admin", "Home");
+                }
+                else if (roles.Contains("User"))
+                {
+                    return RedirectToAction("Applicant", "Home");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Login failed.");
+                Console.WriteLine($"LockedOut: {result.IsLockedOut}, NotAllowed: {result.IsNotAllowed}, Requires2FA: {result.RequiresTwoFactor}");
+                ModelState.AddModelError("", "Invalid username or password");
+                return View(model);
+            }
+            // Show error if login failed
+            ModelState.AddModelError("", "Invalid username or password");
+            return View("~/Views/Home/Login.cshtml", model);
+        }
+
+        // Handles user logout
         public async Task<IActionResult> Logout()
         {
+            // Sign the user out of the session
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Login", "Account");
+
+            // Redirect back to login page
+            return RedirectToAction("Login", "Home");
         }
     }
 }

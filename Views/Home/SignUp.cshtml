@@ -3,14 +3,13 @@
 @{
     ViewData["Title"] = "Sign Up";
 }
-@using (Html.BeginForm("Applicant", "Index", FormMethod.Post))
 {
     <div class="auth-container">
         <div class="auth-box">
             <h2>Create an account</h2>
             <p>Already have an account? <a asp-action="Login">Log in</a></p>
 
-            <form asp-action="Signup" method="post">
+            <form asp-action="Register" asp-controller="Account" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                 <label asp-for="FirstName"></label>

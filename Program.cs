@@ -8,7 +8,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Identity Configuration
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
@@ -25,8 +25,9 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 // Cookie configuration
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.ExpireTimeSpan = TimeSpan.FromDays(7);
-    options.LoginPath = "/Account/Login";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(30); // keeps user logged in for 30 mins
+    options.LoginPath = "/Home/Login";
+    options.AccessDeniedPath = "/Account/AccessDenied";
     options.SlidingExpiration = true;
 });
 
@@ -39,7 +40,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
 
     string[] roles = new[] { "Admin", "User" };
 
@@ -54,7 +55,7 @@ using (var scope = app.Services.CreateScope())
 
     if (await userManager.FindByEmailAsync(adminEmail) == null)
     {
-        var adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
+        var adminUser = new ApplicationUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
         var result = await userManager.CreateAsync(adminUser, adminPassword);
         if (result.Succeeded)
         {
