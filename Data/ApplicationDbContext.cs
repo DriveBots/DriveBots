@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-public class ApplicationDbContext : IdentityDbContext<IdentityUser, IdentityRole, string>
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
@@ -15,13 +15,11 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser, IdentityRole
     {
         base.OnModelCreating(builder);
 
-        // Customize the ASP.NET Identity model and override the defaults if needed
         builder.Entity<ApplicationUser>(entity =>
         {
             entity.Property(e => e.FirstName).HasMaxLength(50);
             entity.Property(e => e.LastName).HasMaxLength(50);
             entity.Property(e => e.DateOfBirth).HasColumnType("date");
-            // Add configurations for other properties
         });
     }
 }
