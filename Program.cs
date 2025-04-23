@@ -52,10 +52,12 @@ var app = builder.Build();
 
     var adminEmail = "admin@drivebots.com";
     var adminPassword = "Admin@123";
+    var adminFirstName = "admin";
+    var adminLastName = "admin";
 
     if (await userManager.FindByEmailAsync(adminEmail) == null)
     {
-        var adminUser = new ApplicationUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
+        var adminUser = new ApplicationUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true, FirstName = adminFirstName, LastName = adminLastName };
         var result = await userManager.CreateAsync(adminUser, adminPassword);
         if (result.Succeeded)
         {
