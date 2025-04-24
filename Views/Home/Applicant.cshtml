@@ -1,7 +1,6 @@
-﻿@model DriveBots.Models.SignupModel
-
+﻿
 @{
-    ViewData["Title"] = "Application Dashboard";
+    ViewData["Title"] = "Applicant Dashboard";
 }
 
 @using (Html.BeginForm("SignUp", "SignUp", FormMethod.Post))
@@ -14,6 +13,28 @@
 
         <form asp-action="Logout" asp-controller="Account" method="post">
             <button type="submit" class="btn btn-secondary">Logout</button>
+            <img src="image.jpg" alt="Image" class="image" />
         </form>
     </div>
 }
+
+<body>
+    <div class="dashboard-wrapper">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+           
+            <a href="#">Home</a>
+            <a href="#">Applications</a>
+            <a href="#">Appointments</a>
+            <a href="#">Payments</a>
+            <a href="#">Settings</a>
+        </div>
+
+    </div><!-- Footer -->
+    <div class="footer">
+    <span>Help Center</span>
+    <span>Terms and Conditions</span>
+    <span>Privacy Policy</span>
+</div>
+</body>

@@ -35,8 +35,9 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+
 // Seed roles and default admin
-using (var scope = app.Services.CreateScope())
+/*using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
@@ -71,7 +72,7 @@ using (var scope = app.Services.CreateScope())
         // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
         app.UseHsts();
     }
-
+*/
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
