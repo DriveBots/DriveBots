@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Applicant Settings";
+}
+
+<div class="settings-container">
+    <h1 class="settings-title">Applicant Settings</h1>
+
+    <div class="space-y-12">
+        <!-- Account & Profile -->
+        <section class="section">
+            <h2 class="section-title">Account & Profile</h2>
+            <form class="space-y-4">
+                <div>
+                    <label class="block font-semibold">Email</label>
+                    <input type="email" placeholder="user@example.com" class="input-field">
+                </div>
+                <div>
+                    <label class="block font-semibold">Name</label>
+                    <input type="text" placeholder="Your display name" class="input-field">
+                </div>
+                <div>
+                    <label class="block font-semibold">Change Password</label>
+                    <input type="password" placeholder="New password" class="input-field">
+                </div>
+                <div>
+                    <label class="block font-semibold">Profile Picture</label>
+                    <input type="file" class="file-field">
+                </div>
+            </form>
+        </section>
+
+        <!-- Notification Preferences -->
+        <section class="section">
+            <h2 class="section-title">Notification Preferences</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block font-semibold">Email Notifications</label>
+                    <select class="select-field">
+                        <option>All</option>
+                        <option>Security only</option>
+                        <option>None</option>
+                    </select>
+                </div>
+
+        </section>
+
+        <button class="save-button">Save All Changes</button>
+    </div>
+</div>
+
+
+
+
+
+
