@@ -337,78 +337,7 @@ body {
     }
 }
 
-.container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
 
-.application-card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-    .application-card h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-    .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
-
-    .form-group input,
-    .form-group select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-    }
-
-input[type="file"] {
-    padding: 5px;
-    border: none;
-}
-
-.btn-submit {
-    width: 100%;
-    background: #222;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-    .btn-submit:hover {
-        background: #333;
-    }
-
-.message {
-    display: none;
-    text-align: center;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 6px;
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
 
 /* Body background */
 body {
@@ -441,6 +370,7 @@ body {
     margin: 0px auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* added shadow for depth */
     color: white; /* text color for better visibility */
+    overflow-y:auto;
 }
 
     /* Heading */
@@ -513,7 +443,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #2c2f33;
     color: #fff;
-    overflow: hidden;
+    
 }
 /* Sidebar Styling */
 .sidebar .nav-item {
@@ -525,7 +455,7 @@ body {
     text-decoration: none;
     color: white;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* light underline */
-    
+           
 }
     .sidebar .nav-item:hover {
         background-color: #fff;
@@ -534,10 +464,16 @@ body {
     }
 /* Main Dashboard Content */
 .main {
-    flex: 1;
+  
     padding: 40px;
     background-color: #2c2f33;
     overflow-y: auto;
+}
+.main-content {
+    flex: 1;
+    padding: 40px;
+    background-color: #2c2f33;
+    color: white;
 }
 
 header h1 {
@@ -556,8 +492,8 @@ header p {
 /* Dashboard Cards */
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:20px;
 }
 
 .card {
@@ -602,28 +538,30 @@ body {
 
 .dashboard-wrapper {
     display: flex;
-    min-height: 100vh;
+   
 }
 
 .sidebar {
     position: fixed;
-    top: 70px;
+    top: 71px;
     left: 0px;
     right: 5px;
     bottom: 40px;
     width: 250px;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #3a3f44; /* updated background color */
     padding-top: 60px;
     display: flex;
     flex-direction: column;
     border-top-right-radius: 10px; /* Rounded top-right corner */
     border-bottom-right-radius: 10px; /* Rounded bottom-right corner */
+    
 }
 
     .sidebar h2 {
         color: #fff;
         margin-bottom: 30px;
+        text-align: center;
     }
 
     .sidebar a {
@@ -632,36 +570,38 @@ body {
         text-decoration: none;
         padding: 10px 0;
         margin-bottom: 10px;
-        border-bottom: 2px solid #ccc; /* Permanent underline */
+        border-bottom: 2px solid #ccc; 
         transition: background-color 0.3s ease, color 0.3s ease;
         border-radius: 0px;
-        width: 80%; /* Reduce the width of the underline */
-        margin-left: 10%; /* Center the underline */
-        border-top-right-radius: 10px; /* Rounded top-right corner */
-        border-bottom-right-radius: 10px; /* Rounded bottom-right corner */
+        width: 85%; 
+        margin-left: 10%; 
+        margin-right:5%;
+        border-top-right-radius: 10px; 
+        border-bottom-right-radius: 10px; 
     }
 
         .sidebar a:hover {
             background-color: white;
             color: #333;
         }
-
+       
 
 
 .main-content {
     flex: 1;
     padding: 40px;
     background-color: #2c2f33;
+    margin-left:250px;
 }
 
 .dashboard h1 {
     margin-top: 0;
 }
 
-.car-image {
+.image {
     width: 100%;
     max-height: 300px;
-    margin-top: 30px;
+    margin-top: 170px;
     border-radius: 8px;
 }
 
@@ -686,19 +626,16 @@ body {
 }
 /* Footer Styling */
 .footer {
-    background-color: #1e2124;
-    color: #ccc;
-    text-align: center;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    margin-top: 60px;
+    padding: 20px;
     font-size: 14px;
-    border-top: 1px solid #444;
+    color: #7f8c8d;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    gap:20px;
 }
 
     .footer span {
-        cursor: default;
+        cursor:default;
     }
 
