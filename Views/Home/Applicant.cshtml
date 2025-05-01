@@ -9,7 +9,13 @@
         <h1>Welcome, @User.Identity.Name!</h1>
         <p>Your application dashboard</p>
         <!-- Application form or status would go here -->
-        <a asp-action="Apply" asp-controller="Application" class="btn btn-primary">Start New Application</a>
+        @Html.ActionLink(
+                linkText: "Start New Application",
+                actionName: "ApplicationPage",
+                controllerName: "Home",
+                routeValues: null,
+                htmlAttributes: new { @class = "btn btn-primary" }
+                )
 
         <form asp-action="Logout" asp-controller="Account" method="post">
             <button type="submit" class="btn btn-secondary">Logout</button>
@@ -24,11 +30,40 @@
         <!-- Sidebar -->
         <div class="sidebar">
            
-            <a href="#">Home</a>
-            <a href="#">Applications</a>
-            <a href="#">Appointments</a>
-            <a href="#">Payments</a>
-            <a href="#">Settings</a>
+            @Html.ActionLink(
+                     linkText: "Home",
+                     actionName: "Index",
+                     controllerName: "Home",
+                     routeValues: null
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Applications",
+                     actionName: "Index",
+                     controllerName: "Applications",
+                     routeValues: null
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Appointments",
+                     actionName: "Index",
+                     controllerName: "Appointments",
+                     routeValues: null
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Payments",
+                     actionName: "Index",
+                     controllerName: "Payments",
+                     routeValues: null
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Settings",
+                     actionName: "Index",
+                     controllerName: "Settings",
+                     routeValues: null
+                     )
             
         </div>
        

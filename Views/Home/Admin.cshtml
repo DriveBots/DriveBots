@@ -4,12 +4,48 @@
 <body>
     <div class="container">
        <div class="sidebar">
-    <div class="nav-item">Settings</div>
-    <div class="nav-item">Applicants</div>
-    <div class="nav-item">Applications</div>
-    <div class="nav-item">Transactions</div>
-    <div class="nav-item">Reports</div>
-    <div class="nav-item">User Management</div>
+            <div class="nav-item">
+                @Html.ActionLink(
+                         linkText: "Settings",
+                         actionName: "Settings",           
+                         controllerName: "Home",    
+                         routeValues: null
+                         )
+            
+                @Html.ActionLink(
+                         linkText: "Applicants",
+                         actionName: "Applicants",
+                         controllerName: "Home",
+                         routeValues: null)
+             
+                @Html.ActionLink(
+                         linkText: "Applications",
+                         actionName: "Applications",
+                         controllerName: "Home",
+                         routeValues: null
+                         )
+            
+                @Html.ActionLink(
+                         linkText: "Transactions",
+                         actionName: "Transactions",
+                         controllerName: "Home",
+                         routeValues: null
+                         )
+            
+                @Html.ActionLink(
+                         linkText: "Reports",
+                         actionName: "Reports",
+                         controllerName: "Home",
+                         routeValues: null
+                         )
+            
+                @Html.ActionLink(
+                         linkText: "User Management",
+                         actionName: "Usermanagement",
+                         controllerName: "Home",
+                         routeValues: null
+                         )
+            </div>
 </div>
      
       <div class="main">
