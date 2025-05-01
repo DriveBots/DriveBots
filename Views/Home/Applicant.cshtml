@@ -17,3 +17,57 @@
         </form>
     </div>
 }
+
+<body>
+    <div class="dashboard-wrapper">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+           
+            @Html.ActionLink(
+                     linkText: "Home",
+                     actionName: "Index",
+                     controllerName: "Home",
+                     routeValues: null
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Applications",
+                     actionName: "Index",
+                     controllerName: "Home",
+                     routeValues: null
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Appointments",
+                     actionName: "Index",
+                     controllerName: "Home",
+                     routeValues: null
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Payments",
+                     actionName: "Index",
+                     controllerName: "Home",
+                     routeValues: null
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Settings",
+                     actionName: "ApplicantSettings",
+                     controllerName: "Home",
+                     routeValues: null
+                     )
+            
+        </div>
+       
+
+    </div><!-- Footer -->
+    <footer>
+        <p>
+            Help Center | Admin Guidelines | Privacy Policy | Terms |
+            Contact: DriveBots@gmail.com | +267 686 7890
+        </p>
+    </footer>
+</body>
+
