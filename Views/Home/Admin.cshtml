@@ -3,19 +3,57 @@
 }
 <body>
     <div class="container">
-   
-       <div class="sidebar">
 
+        <div class="sidebar">
+            @Html.ActionLink(
+                     linkText: "Home",
+                     actionName: "Index",
+                     controllerName: "Home",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
 
-           <a href="#">Home</a>
-           <a href="#">Applications</a>
-         
-           <a href="#">Transactions</a>
-           <a href="#">Reports and Analytics</a>
-           <a href="#">User Management</a>
-           <a href="#">Settings</a>
+            @Html.ActionLink(
+                     linkText: "Applications",
+                     actionName: "Index",
+                     controllerName: "Applications",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
 
-       </div>
+            @Html.ActionLink(
+                     linkText: "Transactions",
+                     actionName: "Index",
+                     controllerName: "Transactions",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Reports and Analytics",
+                     actionName: "Index",
+                     controllerName: "Reports",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
+
+            @Html.ActionLink(
+                     linkText: "User Management",
+                     actionName: "Index",
+                     controllerName: "UserManagement",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Settings",
+                     actionName: "Index",
+                     controllerName: "Settings",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
+        </div>
+
       <div class="main">
             <header>
                 <h1>Welcome, Admin</h1>
