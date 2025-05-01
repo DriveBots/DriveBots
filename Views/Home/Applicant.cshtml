@@ -1,7 +1,6 @@
-﻿@model DriveBots.Models.SignupModel
 
 @{
-    ViewData["Title"] = "Application Dashboard";
+    ViewData["Title"] = "Applicant Dashboard";
 }
 
 @using (Html.BeginForm("SignUp", "SignUp", FormMethod.Post))
@@ -10,10 +9,17 @@
         <h1>Welcome, @User.Identity.Name!</h1>
         <p>Your application dashboard</p>
         <!-- Application form or status would go here -->
-        <a asp-action="Apply" asp-controller="Application" class="btn btn-primary">Start New Application</a>
+        @Html.ActionLink(
+                linkText: "Start New Application",
+                actionName: "ApplicationPage",
+                controllerName: "Home",
+                routeValues: null,
+                htmlAttributes: new { @class = "btn btn-primary" }
+                )
 
         <form asp-action="Logout" asp-controller="Account" method="post">
             <button type="submit" class="btn btn-secondary">Logout</button>
+            <img src="image.jpg" alt="Image" class="image" />
         </form>
     </div>
 }
@@ -34,28 +40,26 @@
             @Html.ActionLink(
                      linkText: "Applications",
                      actionName: "Index",
-                     controllerName: "Home",
-                     routeValues: null
+       routeValues: null
                      )
 
             @Html.ActionLink(
                      linkText: "Appointments",
                      actionName: "Index",
-                     controllerName: "Home",
+
                      routeValues: null
                      )
 
             @Html.ActionLink(
                      linkText: "Payments",
                      actionName: "Index",
-                     controllerName: "Home",
+
                      routeValues: null
                      )
 
             @Html.ActionLink(
                      linkText: "Settings",
-                     actionName: "ApplicantSettings",
-                     controllerName: "Home",
+
                      routeValues: null
                      )
             
