@@ -75,7 +75,7 @@ namespace DriveBots.Controllers
         public IActionResult Transaction()
         {
             return View(); //Looks for "Transaction.cshtml" in Views/Home/
-
+        }
         public IActionResult AdminSettings()
         {
             return View(); //Looks for "AdminSettings.cshtml" in Views/Home/
