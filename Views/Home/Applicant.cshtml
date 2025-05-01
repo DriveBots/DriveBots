@@ -3,28 +3,28 @@
     ViewData["Title"] = "Applicant Dashboard";
 }
 
-@using (Html.BeginForm("SignUp", "SignUp", FormMethod.Post))
-{
-    <div class="dashboard">
-        <h1>Welcome, @User.Identity.Name!</h1>
-        <p>Your application dashboard</p>
-        <!-- Application form or status would go here -->
-        @Html.ActionLink(
-                linkText: "Start New Application",
-                actionName: "ApplicationPage",
-                controllerName: "Home",
-                routeValues: null,
-                htmlAttributes: new { @class = "btn btn-primary" }
-                )
-
-        <form asp-action="Logout" asp-controller="Account" method="post">
-            <button type="submit" class="btn btn-secondary">Logout</button>
-            <img src=" C:\Users\LENOVO\Downloads\background image.jpg" alt="Image" class="image" />
-        </form>
-    </div>
-}
-
 <body>
+    @using (Html.BeginForm("SignUp", "SignUp", FormMethod.Post))
+    {
+        <div class="dashboard">
+            <h1>Welcome, @User.Identity.Name!</h1>
+            <p>Your application dashboard</p>
+            <!-- Application form or status would go here -->
+            @Html.ActionLink(
+                    linkText: "Start New Application",
+                    actionName: "ApplicationPage",
+                    controllerName: "Home",
+                    routeValues: null,
+                    htmlAttributes: new { @class = "btn btn-primary" }
+            )
+
+            <form asp-action="Logout" asp-controller="Account" method="post">
+                <button type="submit" class="btn btn-secondary">Logout</button>
+                <img src=" C:\Users\LENOVO\Downloads\background image.jpg" alt="Image" class="image" />
+            </form>
+        </div>
+    }
+
     <div class="dashboard-wrapper">
 
         <!-- Sidebar -->
@@ -35,38 +35,40 @@
                      actionName: "Index",
                      controllerName: "Home",
                      routeValues: null
-                     )
+            )
 
             @Html.ActionLink(
                      linkText: "Applications",
-                     actionName: "Index",
-       routeValues: null
-                     )
+                     actionName: "Applications",
+                     controllerName: "Home",
+                     routeValues: null
+            )
 
             @Html.ActionLink(
                      linkText: "Appointments",
-                     actionName: "Index",
-
+                     actionName: "Appointments",
+                     controllerName: "Home",
                      routeValues: null
-                     )
+            )
 
             @Html.ActionLink(
                      linkText: "Payments",
-                     actionName: "Index",
-
+                     actionName: "Payment",
+                     controllerName: "Home",
                      routeValues: null
-                     )
+            )
 
             @Html.ActionLink(
                      linkText: "Settings",
-
+                     actionName: "ApplicantSettings",
+                     controllerName: "Home",
                      routeValues: null
-                     )
+            )
             
         </div>
-       
 
     </div><!-- Footer -->
+
     <footer>
         <p>
             Help Center | Admin Guidelines | Privacy Policy | Terms |

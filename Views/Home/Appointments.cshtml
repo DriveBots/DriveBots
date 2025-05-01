@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "Appointments";
+}
+
+<div class="appointment-container">
+    <h1 class="appointment-title">Book an Appointment</h1>
+
+    <form class="appointment-form">
+        <div>
+            <label>Appointment Type</label>
+            <select>
+                <option value="learner">Learner’s License Test</option>
+                <option value="driver">Driver’s License Test</option>
+                <option value="renewal">License Renewal</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Select Date</label>
+            <input type="date" />
+        </div>
+
+        <div>
+            <label>Select Time</label>
+            <input type="time" />
+        </div>
+
+        <div>
+            <label>Preferred Location</label>
+            <select>
+                <option value="gaborone">Gaborone</option>
+                <option value="francistown">Francistown</option>
+                <option value="maun">Maun</option>
+            </select>
+        </div>
+
+        <button type="submit" class="submit-btn">Book Appointment</button>
+    </form>
+
+    <h2>Your Upcoming Appointments</h2>
+    <table class="appointment-table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Location</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Driver’s License Test</td>
+                <td>2025-05-10</td>
+                <td>10:30 AM</td>
+                <td>Gaborone</td>
+                <td>Confirmed</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

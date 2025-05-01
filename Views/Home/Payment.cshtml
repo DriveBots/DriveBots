@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Payments";
+}
+
+<div class="payment-container">
+    <h1 class="payment-title">Make a Payment</h1>
+
+    <form class="payment-form">
+        <div>
+            <label>Full Name</label>
+            <input type="text" placeholder="John Doe" required />
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" required />
+        </div>
+
+        <div>
+            <label>Application ID</label>
+            <input type="text" placeholder="APP123456" required />
+        </div>
+
+        <div>
+            <label>Payment Method</label>
+            <select id="paymentMethod" onchange="togglePaymentFields()">
+                <option value="card">Credit/Debit Card</option>
+                <option value="mobile">Mobile Money</option>
+            </select>
+        </div>
+
+        <div id="cardFields">
+            <label>Card Number</label>
+            <input type="text" maxlength="16" placeholder="1234 5678 9012 3456" />
+            <label>Expiry Date</label>
+            <input type="month" />
+            <label>CVV</label>
+            <input type="text" maxlength="4" placeholder="123" />
+        </div>
+
+        <div id="mobileFields" style="display: none;">
+            <label>Mobile Number</label>
+            <input type="text" placeholder="+267 71234567" />
+            <label>Provider</label>
+            <select>
+                <option>Orange Money</option>
+                <option>Mascom MyZaka</option>
+                <option>BTC Smega</option>
+            </select>
+        </div>
+
+        <button type="submit" class="pay-btn">Submit Payment</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function togglePaymentFields() {
+            const method = document.getElementById("paymentMethod").value;
+            document.getElementById("cardFields").style.display = method === "card" ? "block" : "none";
+            document.getElementById("mobileFields").style.display = method === "mobile" ? "block" : "none";
+        }
+    </script>
+}

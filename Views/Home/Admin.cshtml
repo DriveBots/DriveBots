@@ -5,23 +5,49 @@
     <div class="container">
    
        <div class="sidebar">
-
-
-           <a href="#">Home</a>
-           <a href="#">Applications</a>
-         
-           <a href="#">Transactions</a>
-           <a href="#">Reports and Analytics</a>
-           <a href="#">User Management</a>
-           <a href="#">Settings</a>
-
+            @Html.ActionLink(
+                     linkText: "Home",
+                     actionName: "Index",
+                     controllerName: "Home",
+                     routeValues: null
+            )
+            @Html.ActionLink(
+                     linkText: "Applications",
+                     actionName: "Applications",
+                     controllerName: "Home",
+                     routeValues: null
+            )
+            @Html.ActionLink(
+                     linkText: "Transactions",
+                     actionName: "Transaction",
+                     controllerName: "Home",
+                     routeValues: null
+            )
+            @Html.ActionLink(
+                     linkText: "Reports and Analytics",
+                     actionName: "ReportandAnalytics",
+                     controllerName: "Home",
+                     routeValues: null
+            )
+            @Html.ActionLink(
+                     linkText: "User Management",
+                     actionName: "Usermanagement",
+                     controllerName: "Home",
+                     routeValues: null
+            )
+            @Html.ActionLink(
+                     linkText: "Profile Settings",
+                     actionName: "AdminSettings",
+                     controllerName: "Home",
+                     routeValues: null
+            )
        </div>
+
       <div class="main">
             <header>
                 <h1>Welcome, Admin</h1>
                 <p>Here's a quick overview of current activity.</p>
             </header>
-
 
             <div class="cards">
                 <div class="card">
@@ -48,7 +74,10 @@
                     Contact: DriveBots@gmail.com | +267 686 7890
                 </p>
             </footer>
-        </div>
+
+      </div>
+
     </div>
+
 </body>
 

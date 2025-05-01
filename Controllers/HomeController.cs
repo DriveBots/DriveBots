@@ -66,7 +66,6 @@ namespace DriveBots.Controllers
             return View(); //Looks for "Admin.cshtml" in Views/Home/
         }
 
-
         public IActionResult ReportandAnalytics()
         {
             return View(); //Looks for "RepoortandAnalytics.cshtml" in Views/Home/
@@ -75,7 +74,7 @@ namespace DriveBots.Controllers
         public IActionResult Transaction()
         {
             return View(); //Looks for "Transaction.cshtml" in Views/Home/
-
+        }
         public IActionResult AdminSettings()
         {
             return View(); //Looks for "AdminSettings.cshtml" in Views/Home/
@@ -90,6 +89,16 @@ namespace DriveBots.Controllers
         public IActionResult Usermanagement()
         {
             return View(); //Looks for "Usermanagement.cshtml" in Views/Home/
+        }
+
+        public IActionResult Appointments()
+        {
+            return View(); //Looks for "Appointments.cshtml" in Views/Home/
+        }
+
+        public IActionResult Payment()
+        {
+            return View(); //Looks for "Payment.cshtml" in Views/Home/
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
