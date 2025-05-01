@@ -66,6 +66,16 @@ namespace DriveBots.Controllers
             return View(); //Looks for "Admin.cshtml" in Views/Home/
         }
 
+
+        public IActionResult ReportandAnalytics()
+        {
+            return View(); //Looks for "RepoortandAnalytics.cshtml" in Views/Home/
+        }
+
+        public IActionResult Transaction()
+        {
+            return View(); //Looks for "Transaction.cshtml" in Views/Home/
+
         public IActionResult AdminSettings()
         {
             return View(); //Looks for "AdminSettings.cshtml" in Views/Home/
@@ -74,6 +84,7 @@ namespace DriveBots.Controllers
         public IActionResult ApplicantSettings()
         {
             return View(); //Looks for "ApplicantSettings.cshtml" in Views/Home/
+
         }
 
         public IActionResult Usermanagement()

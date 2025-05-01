@@ -1,6 +1,81 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
-
+    
+   ViewData["Title"] = "User Management";
 }
+<body>
+    
+    <div class="sidebar">
+        <a href="/Admin/Home" class="nav-item">Home</a>
+        <a href="/Admin/Applications" class="nav-item">Applications</a>
+        <a href="/Admin/Transactions" class="nav-item">Transactions</a>
+        <a href="/Admin/Reports" class="nav-item">Reports</a>
+       
+        <a href="/Admin/Settings" class="nav-item">Settings</a>
+    </div>
+<div class="user-management">
+
+    <h2>👥 User Management</h2>
+
+    <div class="user-actions-info">
+        <p>Select an action to perform on each user: <strong>Ban</strong>, <strong>Unban</strong>, or <strong>Delete</strong>.</p>
+    </div>
+        
+        <div class="user-management-cards">
+            <div class="user-card">
+                <h3>Total Users</h3>
+                <p>1,200</p>
+            </div>
+            <div class="user-card">
+                <h3>Banned Users</h3>
+                <p>32</p>
+            </div>
+        </div>
+
+        <div class="user-management-container">
+            
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>Profile</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Registered</th>
+                        <th>Last Login</th>
+                        
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample User Row -->
+                    <tr>
+                        <td><img src="/images/user1.jpg" alt="User" class="profile-pic" /></td>
+                        <td>Cassey Leburu</td>
+                        <td>cassey@example.com</td>
+                        <td>2024-09-15</td>
+                        <td>2025-04-30 14:12</td>
+                        
+                        <td><span class="status active">Active</span></td>
+                        <td>
+                            <button class="ban-btn" onclick="confirm('Are you sure you want to ban this user?')">Ban</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="/images/user2.jpg" alt="User" class="profile-pic" /></td>
+                        <td>John Doe</td>
+                        <td>john.doe@example.com</td>
+                        <td>2023-12-01</td>
+                        <td>2025-04-30 11:03</td>
+                        
+                        <td><span class="status banned">Banned</span></td>
+                        <td>
+                            <button class="unban-btn" onclick="confirm('Are you sure you want to unban this user?')">Unban</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+</body>
+
