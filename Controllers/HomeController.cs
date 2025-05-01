@@ -66,11 +66,6 @@ namespace DriveBots.Controllers
             return View(); //Looks for "Admin.cshtml" in Views/Home/
         }
 
-        public IActionResult Usermanagement()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
