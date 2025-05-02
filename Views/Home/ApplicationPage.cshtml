@@ -4,46 +4,62 @@
 
 <body>
     <!-- Main container -->
-    <div class="container">
-        <div class="application-card">
-            <h2>Apply for a License</h2>
-            <form id="applicationForm">
-                <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required />
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required />
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
-                </div>
-                <div class="form-group">
-                    <label for="license">License Type</label>
-                    <select id="license" name="license" required>
-                        <option value="">-- Select a License --</option>
-                        <option value="learner">Learner's License</option>
-                        <option value="driver">Driver's License</option>
-                        <option value="renewal">Driver's License Renewal</option>
-                    </select>
-                </div>
+    <div class="form-container">
+        <h2>Application Form</h2>
 
-                <!-- Additional form fields for identification document and old driver license -->
-                <div class="form-group">
-                    <label for="idDocument">Identification Document</label>
-                    <input type="file" id="idDocument" name="idDocument" required />
-                </div>
+        <form method="post" action="submit_application.php" enctype="multipart/form-data">
+            
+            <div class="input-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="oldDriverLicense">Old Driver License (if applicable)</label>
-                    <input type="file" id="oldDriverLicense" name="oldDriverLicense" />
-                </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
 
-                <button type="submit" class="btn-submit">Submit Application</button>
-            </form>
+            <div class="input-group">
+                <label for="address">Residential Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
 
+            <div class="input-group">
+                <label for="applicationType">Application Type:</label>
+                <select id="applicationType" name="applicationType" required>
+                    <option value="learners">Learner’s License</option>
+                    <option value="renewal">License Renewal</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="licenseType">License Type:</label>
+                <select id="licenseType" name="licenseType" required>
+                    <option value="classa">A</option>
+                    <option value="classa1">A1</option>
+                    <option value="classb">B</option>
+                    <option value="classc">C</option>
+                    <option value="classc1">C1</option>
+                    <option value="classec">EC</option>
+                    <option value="classec1">EC1</option>
+                    <option value="classf">F</option>
+                    <option value="classh">H</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="date">Application Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="input-group">
+                <label for="uploadId">Upload ID:</label>
+                <input type="file" id="uploadId" name="uploadId" accept=".jpg, .png, .pdf" required>
+            </div>
+
+            <button type="submit" class="btn">Apply</button>
+        </form>
+    </div>
             <!-- Confirmation message -->
             <div id="message" class="message">
                 Your application has been submitted!
