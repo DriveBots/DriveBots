@@ -66,28 +66,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Grab the form element and message div.
-        const form = document.getElementById('applicationForm');
-        const messageDiv = document.getElementById('message');
-
-        // Handle form submission.
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Here you could perform further validation or send the data via AJAX.
-
-            // Show the confirmation message.
-            messageDiv.style.display = 'block';
-
-            // Hide the message after 4 seconds.
-            setTimeout(() => {
-                messageDiv.style.display = 'none';
-            }, 4000);
-
-            // Reset the form fields.
-            form.reset();
-        });
-    </script>
 </body>
