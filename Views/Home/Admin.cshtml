@@ -4,62 +4,17 @@
 <body>
     <div class="container">
 
-        <div class="sidebar">
             @Html.ActionLink(
                      linkText: "Home",
                      actionName: "Index",
                      controllerName: "Home",
-                     routeValues: null,
-                     htmlAttributes: new { @class = "nav-item" }
-                     )
 
-            @Html.ActionLink(
-                     linkText: "Applications",
-                     actionName: "Index",
-                     controllerName: "Applications",
-                     routeValues: null,
-                     htmlAttributes: new { @class = "nav-item" }
-                     )
-
-            @Html.ActionLink(
-                     linkText: "Transactions",
-                     actionName: "Index",
-                     controllerName: "Transactions",
-                     routeValues: null,
-                     htmlAttributes: new { @class = "nav-item" }
-                     )
-
-            @Html.ActionLink(
-                     linkText: "Reports and Analytics",
-                     actionName: "Index",
-                     controllerName: "Reports",
-                     routeValues: null,
-                     htmlAttributes: new { @class = "nav-item" }
-                     )
-
-            @Html.ActionLink(
-                     linkText: "User Management",
-                     actionName: "Index",
-                     controllerName: "UserManagement",
-                     routeValues: null,
-                     htmlAttributes: new { @class = "nav-item" }
-                     )
-
-            @Html.ActionLink(
-                     linkText: "Settings",
-                     actionName: "Index",
-                     controllerName: "Settings",
-                     routeValues: null,
-                     htmlAttributes: new { @class = "nav-item" }
-                     )
-        </div>
 
       <div class="main">
             <header>
                 <h1>Welcome, Admin</h1>
                 <p>Here's a quick overview of current activity.</p>
             </header>
-
 
             <div class="cards">
                 <div class="card">
@@ -86,7 +41,10 @@
                     Contact: DriveBots@gmail.com | +267 686 7890
                 </p>
             </footer>
-        </div>
+
+      </div>
+
     </div>
+
 </body>
 
