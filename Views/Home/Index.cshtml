@@ -1,69 +1,41 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drivebots</title>
-    <link rel="stylesheet" href="site.css">
-</head>
-<body>
-    <header class="hero">
-        <div class="hero-content">
-            <h2>Your one-stop solution for license creation, renewal, and online transport services.</h2>
-            <h1>Welcome to Drivebots</h1>
-            <a href="@Url.Action("ApplicationPage", "Home")" class="btn btn-primary">
-                Book Now
-            </a>
-        </div>
-    </header>
+@{
+    ViewData["Title"] = "Index";
+}
 
-    <section class="services">
-        <h2>Our Comprehensive Services</h2>
-        <p>Discover the variety of services we offer to meet your licensing and transport needs.</p>
+<div class="hero">
+    <div class="hero-content">
+        <h2>Your one-stop solution for license creation, renewal, and online transport services.</h2>
+        <h1>Welcome to Drivebots</h1>
+    </div>
+</div>
 
-        <div class="service-box">
-            <img src="license.jpg" alt="License">
-            <div class="service-info">
-                <h3>License Creation Services</h3>
-                <p>We provide comprehensive services for creating new licenses, tailored to meet your specific requirements.</p>
-                <button class="btn">Explore</button>
+<section class="steps-section">
+        <h2 class="steps-title">Simple Steps</h2>
+        <p class="steps-subtitle">
+            Follow these easy steps to complete your license application or renewal with <span class="brand">Drivebots</span>.
+        </p>
+    
+        <div class="steps-grid">
+            <div class="step-card">
+                <h3>Sign Up</h3>
+                <p>Create your account on Drivebots to access all our online services. Registration is quick and straightforward.</p>
             </div>
-        </div>
-
-        <div class="service-box reverse">
-            <img src="license-renew.jpg" alt="License Renewal">
-            <div class="service-info">
-                <h3>License Renewal Solutions</h3>
-                <p>Drivebots takes the hassle out of license renewals. Our online system ensures your documents remain valid and up to date.</p>
-                <button class="btn">Renew</button>
+            <div class="step-card">
+                <h3>Choose Service</h3>
+                <p>Select the service you need, whether it's a license renewal or a new application, and fill out the required information.</p>
             </div>
-        </div>
-
-    </section>
-
-    <section class="application-process">
-        <h2>Application Process</h2>
-        <p>Follow these simple steps to get started with your licensing process.</p>
-
-        <div class="process-steps">
-            <div class="step">
-                <img src="step1.jpg" alt="Step 1">
-                <h3>Step 1: Register</h3>
-                <p>Create an account to start your application process.</p>
+            <div class="step-card">
+                <h3>Queue Online</h3>
+                <p>Once your application is submitted, you can join the online queue at your convenience, allowing you to save time.</p>
             </div>
-            <div class="step">
-                <img src="step2.jpg" alt="Step 2">
-                <h3>Step 2: Submit Documents</h3>
-                <p>Upload required documents for verification.</p>
-            </div>
-            <div class="step">
-                <img src="step3.jpg" alt="Step 3">
-                <h3>Step 3: Make Payment</h3>
-                <p>Securely make payments online.</p>
+            <div class="step-card">
+                <h3>Receive Approval</h3>
+                <p>After your application is reviewed by our admin team, you will receive timely notifications about your application's status.</p>
             </div>
         </div>
     </section>
-
+    
+    
     <section class="testimonials">
         <h2>What Our Clients Say</h2>
         <div class="testimonial-box">
@@ -75,12 +47,3 @@
             <h4>- Jane Smith</h4>
         </div>
     </section>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - DriveBots - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-
-</body>
-</html>

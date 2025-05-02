@@ -5,12 +5,48 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <a href="/Admin/Home" class="nav-item">Home</a>
-            <a href="/Admin/Applications" class="nav-item">Applications</a>
-            <a href="/Admin/Reports" class="nav-item">Reports</a>
-            <a href="/Admin/UserManagement" class="nav-item">User Management</a>
-            <a href="/Admin/Settings" class="nav-item">Settings</a>
+            @Html.ActionLink(
+                     linkText: "Home",
+                     actionName: "Index",
+                     controllerName: "Home",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Applications",
+                     actionName: "Index",
+                     controllerName: "Applications",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Reports",
+                     actionName: "Index",
+                     controllerName: "Reports",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
+
+            @Html.ActionLink(
+                     linkText: "User Management",
+                     actionName: "Index",
+                     controllerName: "UserManagement",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
+
+            @Html.ActionLink(
+                     linkText: "Settings",
+                     actionName: "Index",
+                     controllerName: "Settings",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
         </div>
+
+        
 
         <div class="main-content">
             <h1 class="page-title">💳 Transactions</h1>
