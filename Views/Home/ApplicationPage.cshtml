@@ -9,10 +9,21 @@
 
         <form method="post" action="submit_application.php" enctype="multipart/form-data">
             
-            <div class="input-group">
-                <label for="fullName">Full Name:</label>
-                <input type="text" id="fullName" name="fullName" required>
-            </div>
+            <div class="name-fields">
+                <div class="input-group name-group">
+                    <label for="firstName" class="input-label">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" class="name-input" required>
+                </div>
+                
+                <div class="input-group name-group">
+                    <label for="middleName" class="input-label">Middle Name:</label>
+                    <input type="text" id="middleName" name="middleName" class="name-input">
+                </div>
+                
+                <div class="input-group name-group">
+                    <label for="lastName" class="input-label">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" class="name-input" required>
+                </div>
 
             <div class="input-group">
                 <label for="email">Email:</label>
