@@ -3,13 +3,51 @@
 }
 <body>
     <div class="container">
-
+        <div class="sidebar">
             @Html.ActionLink(
                      linkText: "Home",
                      actionName: "Index",
                      controllerName: "Home",
-
-
+                     routeValues: null,
+                     htmlAttributes: new { @class = " @class = nav-item" }
+            )
+            @Html.ActionLink(
+                     linkText: "Applications",
+                     actionName: "Applications",
+                     controllerName: "Home",
+                     routeValues: null,
+                     htmlAttributes: new { @class = " @class = nav-item" }
+            )
+            @Html.ActionLink(
+                     linkText: "Transactions",
+                     actionName: "Transaction",
+                     controllerName: "Home",
+                     routeValues: null,
+                     htmlAttributes: new { @class = " @class = nav-item" }
+            )
+            @Html.ActionLink(
+                     linkText: "Reports and Analytics",
+                     actionName: "ReportandAnalytics",
+                     controllerName: "Home",
+                     routeValues: null,
+                     htmlAttributes: new { @class = " @class = nav-item" }
+            )
+            @Html.ActionLink(
+                     linkText: "User Management",
+                     actionName: "Usermanagement",
+                     controllerName: "Home",
+                     routeValues: null,
+                     htmlAttributes: new { @class = " @class = nav-item" }
+            )
+            @Html.ActionLink(
+                     linkText: "Settings",
+                     actionName: "AdminSettings",
+                     controllerName: "Home",
+                     routeValues: null,
+                     htmlAttributes: new { @class = " @class = nav-item" }
+            )
+        </div>
+            
       <div class="main">
             <header>
                 <h1>Welcome, Admin</h1>
