@@ -1,80 +1,98 @@
 ﻿@{
     ViewData["Title"] = "Reports and Analytics";
+    Layout = "_adminLayout";
 }
-<body>
-    <div class="sidebar">
-        @Html.ActionLink(
-                 linkText: "Home",
-                 actionName: "Index",
-                 controllerName: "Home",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
 
-        @Html.ActionLink(
-                 linkText: "Applications",
-                 actionName: "Index",
-                 controllerName: "Applications",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
-
-        @Html.ActionLink(
-                 linkText: "Transactions",
-                 actionName: "Index",
-                 controllerName: "Transactions",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
-
-        @Html.ActionLink(
-                 linkText: "Reports",
-                 actionName: "Index",
-                 controllerName: "Reports",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
-
-        @Html.ActionLink(
-                 linkText: "Settings",
-                 actionName: "Index",
-                 controllerName: "Settings",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
-    </div>
-
-<div class="reports-container">
-    <h2>📄 Reports & Analytics</h2>
-
-    <div class="report-summary">
-        <div class="report-item">
-            <h4>Total Applications</h4>
-            <p>1,245</p>
-        </div>
-        <div class="report-item">
-            <h4>Pending Applications</h4>
-            <p>213</p>
-        </div>
-        <div class="report-item">
-            <h4>Completed Transactions</h4>
-            <p>5,732</p>
-        </div>
-        <div class="report-item">
-            <h4>Active Users</h4>
-            <p>467</p>
-        </div>
-    </div>
-
-    <div class="report-log">
-        <h3>📌 Recent Activity Log</h3>
-        <ul>
-            <li>April 30 - 32 new users registered</li>
-            <li>April 29 - 108 transactions processed</li>
-            <li>April 29 - 3 user accounts flagged</li>
-            <li>April 28 - New system update deployed</li>
-        </ul>
-    </div>
-
+<div class="sidebar">
+    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
+    @Html.ActionLink("Applications", "Index", "Applications", null, new { @class = "nav-link" })
+    @Html.ActionLink("Transactions", "Index", "Transactions", null, new { @class = "nav-link" })
+    @Html.ActionLink("Reports", "Index", "Reports", null, new { @class = "nav-link" })
+    @Html.ActionLink("Settings", "Index", "Settings", null, new { @class = "nav-link" })
 </div>
-</body>
+
+<div class="report-analytics-content">
+    <div class="report-wrapper">
+
+        <!-- Filter Section -->
+        <form class="filter-form" method="get">
+            <div class="filter-group">
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate" name="startDate">
+            </div>
+            <div class="filter-group">
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate" name="endDate">
+            </div>
+            <div class="filter-group">
+                <label for="serviceType">Service Type:</label>
+                <select id="serviceType" name="serviceType">
+                    <option value="">All Services</option>
+                    <option value="license">Driver’s License</option>
+                    <option value="learner">Learner Permit</option>
+                    <option value="registration">Car Registration</option>
+                    <option value="renewal">License Renewal</option>
+                </select>
+            </div>
+            <button type="submit">Apply Filters</button>
+        </form>
+
+        <!-- Report Summary -->
+        <div class="report-summary">
+            
+                <div class="report-item">
+                    <h4>Total Licenses Issued</h4>
+                    <p>3,842</p>
+                </div>
+                <div class="report-item">
+                    <h4>Learner Permits Processed</h4>
+                    <p>1,275</p>
+                </div>
+           
+            
+                <div class="report-item">
+                    <h4>Car Registrations Completed</h4>
+                    <p>2,198</p>
+                </div>
+                <div class="report-item">
+                    <h4>License Renewals</h4>
+                    <p>1,014</p>
+                </div>
+           
+        </div>
+
+        <div class="report-log">
+            <h3>Recent Activity Log</h3>
+            <ul>
+                <li>April 30 - 120 new car registrations completed</li>
+                <li>April 29 - 87 driver’s licenses renewed</li>
+                <li>April 28 - System maintenance completed for faster processing</li>
+                <li>April 27 - 65 learner permits issued</li>
+            </ul>
+        </div>
+        </div>  
+        </div>
+
+<script>
+    document.querySelector('.filter-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const startDate = new Date(document.getElementById('startDate').value);
+        const endDate = new Date(document.getElementById('endDate').value);
+        const serviceType = document.getElementById('serviceType').value;
+
+        document.querySelectorAll('.report-summary .report-item').forEach(item => {
+            const matchesService = serviceType === "" || item.dataset.service === serviceType;
+            item.style.display = matchesService ? "block" : "none";
+        });
+
+        document.querySelectorAll('#logList li').forEach(item => {
+            const entryDate = new Date(item.dataset.date);
+            const matchesService = serviceType === "" || item.dataset.service === serviceType;
+            const matchesDate = (!isNaN(startDate) ? entryDate >= startDate : true) &&
+                (!isNaN(endDate) ? entryDate <= endDate : true);
+
+            item.style.display = (matchesService && matchesDate) ? "list-item" : "none";
+        });
+    });
+</script>
