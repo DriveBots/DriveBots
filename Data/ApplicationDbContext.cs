@@ -22,4 +22,6 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             entity.Property(e => e.DateOfBirth).HasColumnType("date");
         });
     }
+
+    public DbSet<LicenseApplication> LicenseApplications { get; set; }
 }
