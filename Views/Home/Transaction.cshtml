@@ -1,9 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Transactions";
+
+    Layout = "_adminLayout";
 }
 
 <body>
-    <div class="container">
+   
         <div class="sidebar">
             @Html.ActionLink(
                      linkText: "Home",
@@ -59,7 +61,7 @@
                 </div>
                 <div class="t-card">
                     <h3>Completed Transactions</h3>
-                    <p>74</p>
+                    <p>70</p>
                 </div>
                 <div class="t-card">
                     <h3>Pending Transactions</h3>
@@ -71,25 +73,8 @@
                 </div>
             </div>
 
-            <div class="transaction-table">
-                <h3>Transaction Log</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Txn ID</th>
-                            <th>User</th>
-                            <th>Amount (BWP)</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>T001</td><td>Jane Ditshego</td><td>120.00</td><td>2025-04-29</td><td>Completed</td></tr>
-                        <tr><td>T002</td><td>Thabo Nkomo</td><td>95.00</td><td>2025-04-28</td><td>Pending</td></tr>
-                        <tr><td>T003</td><td>Neo Molefe</td><td>150.00</td><td>2025-04-27</td><td>Failed</td></tr>
-                    </tbody>
-                </table>
+            
             </div>
-        </div>
-    </div>
+        
+    
 </body>

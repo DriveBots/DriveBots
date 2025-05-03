@@ -1,29 +1,35 @@
 
+
 @{
     ViewData["Title"] = "Applicant Dashboard";
+    Layout = "_applicantLayout";
 }
-
+<head>
+    <link rel="stylesheet" href="~/css/applicant.css" />
+</head>
 <body>
     @using (Html.BeginForm("SignUp", "SignUp", FormMethod.Post))
     {
         <div class="dashboard">
-            <h1>Welcome, @User.Identity.Name!</h1>
-            <p>Your application dashboard</p>
-            <!-- Application form or status would go here -->
-            @Html.ActionLink(
+            <div class="dashboard-buttons">
+                @Html.ActionLink(
                     linkText: "Start New Application",
                     actionName: "ApplicationPage",
                     controllerName: "Home",
                     routeValues: null,
                     htmlAttributes: new { @class = "btn btn-primary" }
-            )
+                )
 
-            <form asp-action="Logout" asp-controller="Account" method="post">
-                <button type="submit" class="btn btn-secondary">Logout</button>
-                <img src=" C:\Users\LENOVO\Downloads\background image.jpg" alt="Image" class="image" />
-            </form>
+                <form asp-action="Logout" asp-controller="Account" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-secondary">Logout</button>
+                </form>
+            </div>
+
+            <h1>Welcome, @User.Identity.Name!</h1>
+            <p>Your application dashboard</p>
         </div>
     }
+
 
     <div class="dashboard-wrapper">
 
@@ -67,13 +73,7 @@
             
         </div>
 
-    </div><!-- Footer -->
+    </div>
 
-    <footer>
-        <p>
-            Help Center | Admin Guidelines | Privacy Policy | Terms |
-            Contact: DriveBots@gmail.com | +267 686 7890
-        </p>
-    </footer>
+   
 </body>
-

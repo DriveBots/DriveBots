@@ -8,22 +8,6 @@
     <!-- Main container -->
     <div class="form-container">
         <h2>Application Form</h2>
-
-        @if (TempData["Success"] != null)
-        {
-            <div class="alert alert-success">@TempData["Success"]</div>
-        }
-
-        @if (!ViewData.ModelState.IsValid)
-        {
-            <div class="alert alert-danger">
-                Please fix the errors and try again.
-            </div>
-        }
-
-        <form asp-action="ApplicationPage" asp-controller="LicenseApplication" method="post" enctype="multipart/form-data">
-
-
             <div class="name-fields">
                 <div class="input-group name-group">
                     <label asp-for="FirstName" class="input-label"></label>
