@@ -1,116 +1,55 @@
-﻿
-@{
-
-    ViewData["Title"] = "User Management";
+﻿@{
+    ViewData["Title"] = "User Management - DriveBots";
     Layout = "_adminLayout";
 }
-<body>
 
-    <div class="sidebar">
-        @Html.ActionLink(
-                 linkText: "Home",
-                 actionName: "Index",
-                 controllerName: "Home",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
-
-        @Html.ActionLink(
-                 linkText: "Applications",
-                 actionName: "Index",
-                 controllerName: "Applications",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
-
-        @Html.ActionLink(
-                 linkText: "Transactions",
-                 actionName: "Index",
-                 controllerName: "Transactions",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
-
-        @Html.ActionLink(
-                 linkText: "Reports",
-                 actionName: "Index",
-                 controllerName: "Reports",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
-
-        @Html.ActionLink(
-                 linkText: "Settings",
-                 actionName: "Index",
-                 controllerName: "Settings",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
-    </div>
+<div class="sidebar">
+    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-item" })
+    @Html.ActionLink("Applications", "Index", "Applications", null, new { @class = "nav-item" })
+    @Html.ActionLink("Transactions", "Index", "Transactions", null, new { @class = "nav-item" })
+    @Html.ActionLink("Reports", "Index", "Reports", null, new { @class = "nav-item" })
+    @Html.ActionLink("Settings", "Index", "Settings", null, new { @class = "nav-item" })
+</div>
 
 <div class="user-management">
+    <h2>User Management - DriveBots</h2>
+    <p>Below is a list of users registered in the DriveBots system. You can remove users as needed.</p>
 
-    <h2> User Management</h2>
-
-    <div class="user-actions-info">
-        <p>Select an action to perform on each user: <strong>Delete</strong>Delete
+    <div class="user-summary-cards">
+        <div class="user-card">
+            <h3>Total Users</h3>
+            <p>1,200</p>
+        </div>
     </div>
-        
-        <div class="user-management-cards">
-            <div class="user-card">
-                <h3>Total Users</h3>
-                <p>1,200</p>
-            </div>
-            <div class="user-card">
-                <h3>Banned Users</h3>
-                <p>32</p>
-            </div>
-        </div>
 
-        <div class="user-management-container">
-            
-            <table class="user-table">
-                <thead>
+    <div class="user-table-container">
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Date Registered</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @* Sample repeated users *@
+                @for (int i = 1; i <= 10; i++)
+                {
                     <tr>
-                        
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Date</th>
-                        
-                        
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   
-                    <tr>
-                        
-                        <td>Cassey Leburu</td>
-                        <td>cassey@example.com</td>
-                        <td>2024-09-15</td>
-                       
-                        
-                        <td><span class="status active">Active</span></td>
+                        <td>User @i</td>
+                        <td>user@drivebots.io</td>
+                        <td>2025-04-0@((i % 9) + 1)</td>
                         <td>
-                            <button class="ban-btn" onclick="confirm('Are you sure you want to delete this user?')">Delete</button>
+                            <button class="delete-btn" onclick="confirm('Are you sure you want to delete this user?')">Delete</button>
                         </td>
                     </tr>
-                    <tr>
-                       
-                        <td>John Doe</td>
-                         <td>john.doe@example.com</td>
-                        <td>2023-12-01</td>
-                       
-                        
-                        <td><span class="status deleted">Delete</span></td>
-                        <td>
-                            <button class="unban-btn" onclick="confirm('Are you sure you want to  this user?')">Unban</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        </div>
-</body>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+   
 
