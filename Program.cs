@@ -1,5 +1,6 @@
 using DriveBots.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,13 +32,15 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 
+builder.Services.AddTransient<IEmailSender, ConsoleEmailSender>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
 
 // Seed roles and default admin
-/*using (var scope = app.Services.CreateScope())
+using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
@@ -74,7 +77,7 @@ var app = builder.Build();
         // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
         app.UseHsts();
     }
-*/
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
