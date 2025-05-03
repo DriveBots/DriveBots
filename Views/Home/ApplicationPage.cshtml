@@ -9,10 +9,16 @@
 
         <form method="post" action="submit_application.php" enctype="multipart/form-data">
             
-            <div class="input-group">
-                <label for="fullName">Full Name:</label>
-                <input type="text" id="fullName" name="fullName" required>
-            </div>
+            <div class="name-fields">
+                <div class="input-group name-group">
+                    <label for="firstName" class="input-label">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" class="name-input" required>
+                </div>
+                
+                <div class="input-group name-group">
+                    <label for="lastName" class="input-label">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" class="name-input" required>
+                </div>
 
             <div class="input-group">
                 <label for="email">Email:</label>
@@ -35,23 +41,17 @@
             <div class="input-group">
                 <label for="licenseType">License Type:</label>
                 <select id="licenseType" name="licenseType" required>
-                    <option value="classa">A</option>
-                    <option value="classa1">A1</option>
-                    <option value="classb">B</option>
-                    <option value="classc">C</option>
-                    <option value="classc1">C1</option>
-                    <option value="classec">EC</option>
-                    <option value="classec1">EC1</option>
-                    <option value="classf">F</option>
-                    <option value="classh">H</option>
+                    <option value="classa">Class A</option>
+                    <option value="classa1">Class A1</option>
+                    <option value="classb">Class B</option>
+                    <option value="classc">Class C</option>
+                    <option value="classc1">Class C1</option>
+                    <option value="classec">Class EC</option>
+                    <option value="classec1">Class EC1</option>
+                    <option value="classf">Class F</option>
+                    <option value="classh">Class H</option>
                 </select>
             </div>
-
-            <div class="input-group">
-                <label for="date">Application Date:</label>
-                <input type="date" id="date" name="date" required>
-            </div>
-
             <div class="input-group">
                 <label for="uploadId">Upload ID:</label>
                 <input type="file" id="uploadId" name="uploadId" accept=".jpg, .png, .pdf" required>
@@ -59,11 +59,5 @@
 
             <button type="submit" class="btn">Apply</button>
         </form>
-    </div>
-            <!-- Confirmation message -->
-            <div id="message" class="message">
-                Your application has been submitted!
-            </div>
-        </div>
     </div>
 </body>
