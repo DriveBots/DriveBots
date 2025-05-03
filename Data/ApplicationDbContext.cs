@@ -24,4 +24,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     }
 
     public DbSet<LicenseApplication> LicenseApplications { get; set; }
+
+    public DbSet<Appointment> Appointments { get; set; }
+
 }
