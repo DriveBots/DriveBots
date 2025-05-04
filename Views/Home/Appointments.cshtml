@@ -1,4 +1,5 @@
-﻿
+﻿@model DriveBots.Models.AppointmentViewModel
+
 @{
     ViewData["Title"] = "Appointments";
 }
@@ -6,57 +7,101 @@
 <div class="appointment-container">
     <h1 class="appointment-title">Book an Appointment</h1>
 
-    <form class="appointment-form">
-        <div>
-            <label>Appointment Type</label>
-            <select>
-                <option value="learner">Learner’s License Test</option>
-                <option value="driver">Driver’s License Test</option>
-                <option value="renewal">License Renewal</option>
-            </select>
-        </div>
+    <form asp-action="Appointment" asp-controller="Appointment" method="post" class="appointment-form">
+            <div>
+                <input asp-for="FirstName" placeholder="First Name" />
+            </div>
 
-        <div>
-            <label>Select Date</label>
-            <input type="date" />
-        </div>
+            <div>
+                <input asp-for="LastName" placeholder="Last Name" />
+            </div>
 
-        <div>
-            <label>Select Time</label>
-            <input type="time" />
-        </div>
+            <div>
+                <input asp-for="Email" placeholder="Email" />
+            </div>
 
-        <div>
-            <label>Preferred Location</label>
-            <select>
-                <option value="gaborone">Gaborone</option>
-                <option value="francistown">Francistown</option>
-                <option value="maun">Maun</option>
-            </select>
-        </div>
+            <div>
+                <select asp-for="AppointmentType">
+                    <option value="eye_test">Eye Test</option>
+                    <option value="road_test">Road Test</option>
+                    <option value="yard_test">Yard Test</option>
+                    <option value="road_worth">Road worth</option>
+                    <option value="prdp">PrDP</option>
+                    <option value="vehicle_registration">Vehicle Registration</option>
+                </select>
+            </div>
 
+            <div>
+                <input asp-for="Date" type="date" />
+            </div>
+
+            <div>
+                <select asp-for="Location">
+                    <option value="bbs_mall">BBS mall</option>
+                    <option value="bobonong">Bobonong</option>
+                    <option value="fairgrouds_mall">Fairgrounds Mall</option>
+                    <option value="francistown_gold_valley">Francistown Gold Valley</option>
+                    <option value="francistown_vts">Francistown VTS</option>
+                    <option value="ghanzi">Ghanzi</option>
+                    <option value="gumare">Gumare</option>
+                    <option value="jwaneng">Jwaneng</option>
+                    <option value="kang">Kang</option>
+                    <option value="kasane">Kasane</option>
+                    <option value="kanye">Kanye</option>
+                    <option value="letlhakane">Letlhakane</option>
+                    <option value="lobatse">Lobatse</option>
+                    <option value="mahalapye">Mahalapye</option>
+                    <option value="masunga">Masunga</option>
+                    <option value="maun">Maun</option>
+                    <option value="mochudi">Mochudi</option>
+                    <option value="molepolole">Molepolole</option>
+                    <option value="oldsupplies">Old Supplies</option>
+                    <option value="palapye">Palapye</option>
+                    <option value="ramotswa">Ramotswa</option>
+                    <option value="selibe_phikwe">Selibe Phikwe</option>
+                    <option value="serowe">Serowe</option>
+                    <option value="shakawe">Shakawe</option>
+                    <option value="tsabong">Tsabong</option>
+                    <option value="tutume">Tutume</option>
+                </select>
+            </<div
         <button type="submit" class="submit-btn">Book Appointment</button>
     </form>
 
     <h2>Your Upcoming Appointments</h2>
-    <table class="appointment-table">
-        <thead>
-            <tr>
-                <th>Type</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Location</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Driver’s License Test</td>
-                <td>2025-05-10</td>
-                <td>10:30 AM</td>
-                <td>Gaborone</td>
-                <td>Confirmed</td>
-            </tr>
-        </tbody>
-    </table>
+
+    @if (Model?.UpcomingAppointments != null && Model.UpcomingAppointments.Any())
+    {
+        <table class="appointment-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var appointment in Model.UpcomingAppointments)
+                {
+                    <tr>
+                        <td>@appointment.AppointmentType</td>
+                        <td>@appointment.Date.ToString("yyyy-MM-dd")</td>
+                        <td>@appointment.Location</td>
+                        <td>
+                            <form asp-action="CancelAppointment" method="post">
+                                <input type="hidden" name="id" value="@appointment.Id" />
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to cancel this appointment?')">Cancel</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No upcoming appointments.</p>
+    }
+
 </div>

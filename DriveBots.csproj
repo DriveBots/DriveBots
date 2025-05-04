@@ -27,5 +27,20 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\images\db1.jpeg" />
+    <None Include="wwwroot\images\db10.png" />
+    <None Include="wwwroot\images\db11.png" />
+    <None Include="wwwroot\images\db12.png" />
+    <None Include="wwwroot\images\db13.png" />
+    <None Include="wwwroot\images\db15.webp" />
+    <None Include="wwwroot\images\db2.jpeg" />
+    <None Include="wwwroot\images\db3.jpeg" />
+    <None Include="wwwroot\images\db4.jpeg" />
+    <None Include="wwwroot\images\db6.png" />
+    <None Include="wwwroot\images\db7.png" />
+    <None Include="wwwroot\images\db8.png" />
+    <None Include="wwwroot\images\db9.png" />
+  </ItemGroup>
 
 </Project>
