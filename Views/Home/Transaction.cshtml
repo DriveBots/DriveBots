@@ -9,7 +9,7 @@
         <div class="sidebar">
             @Html.ActionLink(
                      linkText: "Home",
-                     actionName: "Index",
+                     actionName: "Admin",
                      controllerName: "Home",
                      routeValues: null,
                      htmlAttributes: new { @class = "nav-item" }
@@ -17,32 +17,32 @@
 
             @Html.ActionLink(
                      linkText: "Applications",
-                     actionName: "Index",
-                     controllerName: "Applications",
+                 actionName: "Applications",
+                     controllerName: "Home",
                      routeValues: null,
                      htmlAttributes: new { @class = "nav-item" }
                      )
 
             @Html.ActionLink(
-                     linkText: "Reports",
-                     actionName: "Index",
-                     controllerName: "Reports",
+                     linkText: "Report and Analytics",
+                 actionName: "ReportandAnalytics",
+                     controllerName: "Home",
                      routeValues: null,
                      htmlAttributes: new { @class = "nav-item" }
                      )
 
             @Html.ActionLink(
                      linkText: "User Management",
-                     actionName: "Index",
-                     controllerName: "UserManagement",
+                 actionName: "Usermanagement",
+                     controllerName: "Home",
                      routeValues: null,
                      htmlAttributes: new { @class = "nav-item" }
                      )
 
             @Html.ActionLink(
                      linkText: "Settings",
-                     actionName: "Index",
-                     controllerName: "Settings",
+                     actionName: "AdminSettings",
+                     controllerName: "Home",
                      routeValues: null,
                      htmlAttributes: new { @class = "nav-item" }
                      )
