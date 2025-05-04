@@ -5,22 +5,18 @@ namespace DriveBots.Models
 {
     public class Appointment
     {
-        [Key]
         public int Id { get; set; }
 
-        [Required]
-        public string UserId { get; set; }
+        public string UserId { get; set; } // Foreign key to AspNetUsers
 
-        [Required]
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+
         public string AppointmentType { get; set; }
+        public DateTime Date { get; set; }
 
-        [Required]
-        public DateTime AppointmentDate { get; set; }
-
-        [Required]
         public string Location { get; set; }
-
-        [Required]
-        public string Status { get; set; } = "Pending"; // or Confirmed, Cancelled, etc.
     }
+
 }

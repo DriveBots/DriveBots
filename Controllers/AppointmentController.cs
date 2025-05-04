@@ -1,64 +1,86 @@
-﻿using DriveBots.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Linq;
+using DriveBots.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace DriveBots.Controllers
+public class AppointmentController : Controller
 {
-    [Authorize]
-    public class AppointmentController : Controller
+    private readonly ApplicationDbContext _context;
+    private readonly UserManager<ApplicationUser> _userManager;
+
+    public AppointmentController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
     {
-        private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
+        _context = context;
+        _userManager = userManager;
+    }
 
-        public AppointmentController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
-        {
-            _context = context;
-            _userManager = userManager;
-        }
+    [HttpGet]
+    public async Task<IActionResult> Appointment()
+    {
+        var userId = _userManager.GetUserId(User);
 
-        [HttpGet]
-        public IActionResult Appointment()
-        {
-            return View(new AppointmentViewModel());
-        }
+        var upcomingAppointments = await _context.Appointments
+            .Where(a => a.UserId == userId && a.Date >= DateTime.Today)
+            .ToListAsync();
 
-        [HttpPost]
-        public async Task<IActionResult> Appointment(AppointmentViewModel model)
+        var model = new AppointmentViewModel
         {
-            if (!ModelState.IsValid)
+            UpcomingAppointments = upcomingAppointments
+        };
+
+        return View(model);
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> Appointment(AppointmentViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var existingCount = await _context.Appointments
+                .Where(a => a.Date == model.Date && a.Location == model.Location)
+                .CountAsync();
+
+            if (existingCount >= 50)
+            {
+                ModelState.AddModelError("", "This location is fully booked for the selected date.");
                 return View(model);
+            }
 
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
+            var userId = _userManager.GetUserId(User);
             var appointment = new Appointment
             {
                 UserId = userId,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Email = model.Email,
                 AppointmentType = model.AppointmentType,
-                AppointmentDate = model.AppointmentDate.Date + model.AppointmentTime,
-                Location = model.Location,
-                Status = "Pending"
-            }; 
+                Date = model.Date,
+                Location = model.Location
+            };
 
             _context.Appointments.Add(appointment);
             await _context.SaveChangesAsync();
 
-            TempData["Success"] = "Appointment booked successfully!";
-            return RedirectToAction("MyAppointments");
+            return RedirectToAction("Appointment");
         }
 
-        public IActionResult MyAppointments()
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var appointments = _context.Appointments
-                .Where(a => a.UserId == userId)
-                .OrderByDescending(a => a.AppointmentDate)
-                .ToList();
-
-            return View(appointments);
-        }
+        return View(model);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> CancelAppointment(int id)
+    {
+        var appointment = await _context.Appointments.FindAsync(id);
+        if (appointment == null)
+        {
+            return NotFound();
+        }
+
+        _context.Appointments.Remove(appointment);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction("Appointment");
+    }
+
 }
