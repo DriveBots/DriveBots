@@ -36,6 +36,15 @@ builder.Services.AddTransient<IEmailSender, ConsoleEmailSender>();
 
 builder.Services.AddControllersWithViews();
 
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.SetMinimumLevel(LogLevel.Debug);
+builder.Logging.AddFilter("Microsoft.AspNetCore.Authentication", LogLevel.Information);
+builder.Logging.AddFilter("Microsoft.AspNetCore.Authorization", LogLevel.Debug);
+builder.Logging.AddFilter("Microsoft.AspNetCore.Mvc", LogLevel.Debug);
+builder.Logging.AddFilter("Microsoft.AspNetCore.Routing", LogLevel.Debug);
+
+
 var app = builder.Build();
 
 
@@ -82,6 +91,12 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.Use(async (context, next) => {
+    var logger = context.RequestServices.GetRequiredService<ILogger<Program>>();
+    logger.LogDebug("--> Request: {Method} {Path}", context.Request.Method, context.Request.Path);
+    await next();
+    logger.LogDebug("<-- Response: {StatusCode}", context.Response.StatusCode);
+});
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -89,5 +104,11 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+Class1 c = new Class1();
+System.Data.DataSet ds = c.GetData();
+Console.WriteLine(ds.Tables[0].Rows.Count);
+
 
 app.Run();

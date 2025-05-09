@@ -7,7 +7,7 @@
 <div class="appointment-container">
     <h1 class="appointment-title">Book an Appointment</h1>
 
-    <form asp-action="Appointment" asp-controller="Appointment" method="post" class="appointment-form">
+    <form asp-action="Appointment" asp-controller="Home" method="post" class="appointment-form">
             <div>
                 <input asp-for="FirstName" placeholder="First Name" />
             </div>
@@ -64,7 +64,7 @@
                     <option value="tsabong">Tsabong</option>
                     <option value="tutume">Tutume</option>
                 </select>
-            </<div
+            </<div>
         <button type="submit" class="submit-btn">Book Appointment</button>
     </form>
 
