@@ -4,92 +4,85 @@
     ViewData["Title"] = "ApplicationPage";
 }
 
-<body>
-    <!-- Main container -->
-    <div class="form-container">
-        <h2>Application Form</h2>
+<div class="form-container">
+    <h2>Application Form</h2>
 
-         @if (TempData["Success"] != null)
-        {
-            <div class="alert alert-success">@TempData["Success"]</div>
-        }
-
-        @if (!ViewData.ModelState.IsValid)
-        {
-            <div class="alert alert-danger">
-                Please fix the errors and try again.
-            </div>
-        }
-
-        <form asp-action="ApplicationPage" asp-controller="LicenseApplication" method="post" enctype="multipart/form-data">
-            <div class="name-fields">
-                <div class="input-group name-group">
-                    <label asp-for="FirstName" class="input-label"></label>
-                    <input asp-for="FirstName" class="name-input"/>
-                    <span asp-validation-for="FirstName" class="text-danger"></span>
-                </div>
-
-                <div class="input-group name-group">
-                    <label asp-for="LastName" class="input-label"></label>
-                    <input asp-for="LastName" class="name-input"/>
-                    <span asp-validation-for="LastName" class="text-danger"></span>
-                </div>
-
-               </div>
-
-            </div>
-
-
-            <div class="input-group">
-                <label asp-for="Email"></label>
-                <input asp-for="Email"/>
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-
-            <div class="input-group">
-                <label asp-for="Address"></label>
-                <input asp-for="Address" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-
-            <div class="input-group">
-                <label asp-for="ApplicationType"></label>
-                <select asp-for="ApplicationType">
-                    <option value="">-- Select Type --</option>
-                    <option value="Learner">Learner’s License</option>
-                    <option value="Renewal">License Renewal</option>
-                </select>
-                <span asp-validation-for="ApplicationType" class="text-danger"></span>
-            </div>
-
-            <div class="input-group">
-                <label asp-for="LicenceClass"></label>
-                <select asp-for="LicenceClass">
-                    <option value="">-- Select License Class --</option>
-                    <option value="ClassA">Class A</option>
-                    <option value="ClassA1">Class A1</option>
-                    <option value="ClassB">Class B</option>
-                    <option value="ClassC">Class C</option>
-                    <option value="ClassC1">Class C1</option>
-                    <option value="ClassEC">Class EC</option>
-                    <option value="ClassEC1">Class EC1</option>
-                    <option value="ClassF">Class F</option>
-                    <option value="ClassH">Class H</option>
-                </select>
-                <span asp-validation-for="LicenceClass" class="text-danger"></span>
-            </div>
-
-            <div class="input-group">
-                <label asp-for="IDDocument">Upload ID:</label>
-                <input asp-for="IDDocument" type="file" accept=".jpg, .png, .pdf" />
-                <span asp-validation-for="IDDocument" class="text-danger"></span>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Apply</button>
-        </form>
-    </div>
-
-    @section Scripts {
-       <partial name="_ValidationScriptsPartial" />
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
     }
-</body>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            Please fix the errors and try again.
+        </div>
+    }
+
+    <form asp-action="ApplicationPage" asp-controller="LicenseApplication" method="post" enctype="multipart/form-data">
+        <div class="name-fields">
+            <div class="input-group name-group">
+                <label asp-for="FirstName" class="input-label"></label>
+                <input asp-for="FirstName" class="name-input"/>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="input-group name-group">
+                <label asp-for="LastName" class="input-label"></label>
+                <input asp-for="LastName" class="name-input"/>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label asp-for="Email"></label>
+            <input asp-for="Email"/>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="input-group">
+            <label asp-for="Address"></label>
+            <input asp-for="Address" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <div class="input-group">
+            <label asp-for="ApplicationType"></label>
+            <select asp-for="ApplicationType">
+                <option value="">-- Select Type --</option>
+                <option value="Learner">Learner’s License</option>
+                <option value="Renewal">License Renewal</option>
+            </select>
+            <span asp-validation-for="ApplicationType" class="text-danger"></span>
+        </div>
+
+        <div class="input-group">
+            <label asp-for="LicenceClass"></label>
+            <select asp-for="LicenceClass">
+                <option value="">-- Select License Class --</option>
+                <option value="ClassA">Class A</option>
+                <option value="ClassA1">Class A1</option>
+                <option value="ClassB">Class B</option>
+                <option value="ClassC">Class C</option>
+                <option value="ClassC1">Class C1</option>
+                <option value="ClassEC">Class EC</option>
+                <option value="ClassEC1">Class EC1</option>
+                <option value="ClassF">Class F</option>
+                <option value="ClassH">Class H</option>
+            </select>
+            <span asp-validation-for="LicenceClass" class="text-danger"></span>
+        </div>
+
+        <div class="input-group">
+            <label asp-for="IDDocument">Upload ID:</label>
+            <input asp-for="IDDocument" type="file" accept=".jpg, .png, .pdf" />
+            <span asp-validation-for="IDDocument" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Apply</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
