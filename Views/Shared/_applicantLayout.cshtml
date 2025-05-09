@@ -1,13 +1,76 @@
 ﻿<!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DriveBots</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DriveBots.site.css" asp-append-version="true" />
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DriveBots</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            @Html.ActionLink(
+                                     linkText: "Home",
+                                     actionName: "Index",
+                                     controllerName: "Home",
+                                     routeValues: null,
+                                     htmlAttributes: new { @class = "nav-link text-dark" }
+                                     )
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink(
+                                     linkText: "Services",
+                                     actionName: "Services",
+                                     controllerName: "Home",
+                                     routeValues: null,
+                                     htmlAttributes: new { @class = "nav-link text-dark" }
+                                     )
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink(
+                                     linkText: "About Us",
+                                     actionName: "AboutUs",
+                                     controllerName: "Home",
+                                     routeValues: null,
+                                     htmlAttributes: new { @class = "nav-link text-dark" }
+                                     )
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink(
+                                     linkText: "Contact Us",
+                                     actionName: "ContactUs",
+                                     controllerName: "Home",
+                                     routeValues: null,
+                                     htmlAttributes: new { @class = "nav-link text-dark" }
+                                     )
+                        </li>
+                        </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
     </div>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

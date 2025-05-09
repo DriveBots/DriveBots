@@ -1,8 +1,8 @@
 ﻿@{
-    ViewData["Title"] = "User Management - DriveBots";
+    ViewData["Title"] = "User Management";
     Layout = "_adminLayout";
 }
-
+<img src="/images/admin-bg.jpg" alt="Dashboard Image" />
 <div class="sidebar">
 
     @Html.ActionLink(
@@ -23,20 +23,19 @@
 
     @Html.ActionLink(
             linkText: "Reports and Analytics",
-            actionName: "ReportsandAnalytics",
-            controllerName: "Home",
-            routeValues: null,
-            htmlAttributes: new { @class = "nav-item" }
-            )
-
-    @Html.ActionLink(
-            linkText: "Report and Analytics",
             actionName: "ReportandAnalytics",
             controllerName: "Home",
             routeValues: null,
             htmlAttributes: new { @class = "nav-item" }
             )
 
+    @Html.ActionLink(
+            linkText: "Transaction",
+            actionName: "Transaction",
+            controllerName: "Home",
+            routeValues: null,
+            htmlAttributes: new { @class = "nav-item" }
+            )
     @Html.ActionLink(
             linkText: "Settings",
             actionName: "AdminSettings",
