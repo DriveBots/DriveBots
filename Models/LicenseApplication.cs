@@ -13,7 +13,7 @@ namespace DriveBots.Models
         public string UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public ApplicationUser User { get; set; }  // Navigation property
+        public ApplicationUser User { get; set; }
 
         [Required]
         public string FirstName { get; set; }

@@ -1,0 +1,132 @@
+﻿@model DriveBots.Models.HistoryViewModel
+
+@{
+    ViewData["Title"] = "Application History";
+}
+
+// Debug output that will appear in console
+    System.Diagnostics.Debug.WriteLine($"View received model: {Model != null}");
+    Console.WriteLine($"Model in view: {(Model == null ? "NULL" : "VALID")}");
+
+<div class="history-container">
+    <p>Current user: @User.Identity.Name</p>
+    <p>User ID: @ViewBag.UserId</p>
+    <p>Applications Count: @ViewBag.AppCount</p>
+    <p>Appointments Count: @ViewBag.AptCount</p>
+
+    @if (Model == null)
+    {
+        <p>Model is null</p>
+    }
+    else
+    {
+
+        <section class="application-history">
+            <h2>License Applications</h2>
+            @if (Model?.Applications?.Any() == true)
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Application Type</th>
+                                <th>License Class</th>
+                                <th>Submitted Date</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var app in Model.Applications)
+                            {
+                                <tr>
+                                    <td>@app.ApplicationType</td>
+                                    <td>@app.LicenceClass</td>
+                                    <td>@app.SubmittedAt.ToString("yyyy-MM-dd")</td>
+                                    <td>@app.Email</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info">
+                    No license applications found.
+                </div>
+            }
+    </section>
+
+    <section class="appointment-history mt-5">
+        <h2>Scheduled Appointments</h2>
+
+        @if (Model?.Appointments?.Any() == true)
+        {
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Appointment Type</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var apt in Model.Appointments)
+                        {
+                            <tr>
+                                <td>@apt.AppointmentType</td>
+                                <td>@apt.Date.ToString("yyyy-MM-dd")</td>
+                                <td>@apt.Location</td>
+                                <td>@apt.Email</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info">
+                No appointments scheduled.
+            </div>
+        }
+
+    </section>
+    }
+    
+
+    <div>
+        <h3>Debug Information</h3>
+        <p>Model is null: @(Model == null)</p>
+        @if (Model != null)
+        {
+            <p>Applications count: @Model.Applications?.Count</p>
+            <p>Appointments count: @Model.Appointments?.Count</p>
+            @if (Model.Applications?.Any() == true)
+            {
+                <p>First application email: @Model.Applications.First().Email</p>
+            }
+            @if (Model.Appointments?.Any() == true)
+            {
+                <p>First appointment email: @Model.Appointments.First().Email</p>
+            }
+        }
+    </div>
+    
+</div>
+
+<style>
+    .history-container {
+        margin: 20px;
+    }
+
+    .table {
+        margin-top: 15px;
+    }
+
+    .alert {
+        margin-top: 10px;
+    }
+</style>

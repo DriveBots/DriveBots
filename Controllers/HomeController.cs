@@ -106,6 +106,11 @@ namespace DriveBots.Controllers
             return View(); //Looks for "AdminApplications.cshtml" in Views/Home/
         }
 
+        public IActionResult Applications()
+        {
+            return View(); //Looks for "Applications.cshtml" in Views/Home/
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
