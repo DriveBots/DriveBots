@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -31,4 +31,3 @@ public class Class1
 
 
 }
-*/
