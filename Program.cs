@@ -48,7 +48,7 @@ builder.Logging.AddFilter("Microsoft.AspNetCore.Routing", LogLevel.Debug);
 var app = builder.Build();
 
 
-    /*// Seed roles and default admin
+    // Seed roles and default admin
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -86,7 +86,7 @@ using (var scope = app.Services.CreateScope())
         // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
         app.UseHsts();
     }
-    */
+    
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
