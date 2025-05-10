@@ -1,7 +1,46 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Payments";
 }
+
+<div class="sidebar">
+
+    @Html.ActionLink(
+            linkText: "Home",
+            actionName: "Applicant",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Applications",
+            actionName: "Applications",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Appointments",
+            actionName: "Appointments",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Payments",
+            actionName: "Payment",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Settings",
+            actionName: "ApplicantSettings",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+</div>
+
 
 <div class="payment-container">
     <h1 class="payment-title">Make a Payment</h1>
@@ -18,9 +57,18 @@
         </div>
 
         <div>
-            <label>Application ID</label>
-            <input type="text" placeholder="APP123456" required />
+            <label>Service Type</label>
+            <select name="ServiceType" required>
+                <option value="">-- Select Service --</option>
+                <option value="Eye Test">Eye Test</option>
+                <option value="Road Test">Road Test</option>
+                <option value="yard test">yard test</option>
+                <option value="road worth">road worth</option>
+                <option value="prdp">prdp</option>
+                <option value="vehicle registration">vehicle registration</option>
+            </select>
         </div>
+
 
         <div>
             <label>Payment Method</label>
@@ -63,3 +111,4 @@
         }
     </script>
 }
+           
