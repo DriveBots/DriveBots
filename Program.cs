@@ -49,7 +49,7 @@ var app = builder.Build();
 
 
     // Seed roles and default admin
-/*using (var scope = app.Services.CreateScope())
+using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
@@ -109,6 +109,6 @@ app.MapControllerRoute(
 Class1 c = new Class1();
 System.Data.DataSet ds = c.GetData();
 Console.WriteLine(ds.Tables[0].Rows.Count);
-*/
+
 
 app.Run();
