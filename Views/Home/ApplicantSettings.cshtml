@@ -3,12 +3,53 @@
     Layout = "_applicantLayout";
 }
 
-<div class="settings-container">
-    <h1 class="settings-title">Applicant Settings</h1>
+<div class="sidebar">
+
+    @Html.ActionLink(
+            linkText: "Home",
+            actionName: "Applicant",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Applications",
+            actionName: "Applications",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Appointments",
+            actionName: "Appointments",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Payments",
+            actionName: "Payment",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Settings",
+            actionName: "ApplicantSettings",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+</div>
+
+<div class="settings-container ml-[220px] p-6">
+
+    <h1 class="page-title text-white">Applicant Settings</h1>
 
     <div class="space-y-12">
-        <!-- Account & Profile -->
-        <section class="section">
+
+       
+        <section class="section space-y-4">
             <h2 class="section-title">Account & Profile</h2>
             <form class="space-y-4">
                 <div>
@@ -19,19 +60,29 @@
                     <label class="block font-semibold">Name</label>
                     <input type="text" placeholder="Your display name" class="input-field">
                 </div>
-                <div>
-                    <label class="block font-semibold">Change Password</label>
-                    <input type="password" placeholder="New password" class="input-field">
-                </div>
-                <div>
-                    <label class="block font-semibold">Profile Picture</label>
-                    <input type="file" class="file-field">
-                </div>
             </form>
         </section>
 
-        <!-- Notification Preferences -->
-        <section class="section">
+      
+        <section class="section space-y-4">
+            <h2 class="section-title">Change Password</h2>
+            <form class="space-y-4">
+                <div>
+                    <label class="block font-semibold">New Password</label>
+                    <input type="password" placeholder="enter new password" class="input-field">
+                </div>
+                <div>
+                    <label class="block font-semibold">Confirm Password</label>
+                    <input type="password" placeholder="re-enter password" class="input-field">
+                </div>
+            </form>
+
+            
+            <button class="save-button mt-2">Update Password</button>
+        </section>
+
+
+        <section class="section space-y-4">
             <h2 class="section-title">Notification Preferences</h2>
             <div class="space-y-4">
                 <div>
@@ -42,15 +93,11 @@
                         <option>None</option>
                     </select>
                 </div>
-</div>
+            </div>
+
+          
+            <button class="save-button mt-2">Save All Changes</button>
         </section>
 
-        <button class="save-button">Save All Changes</button>
     </div>
 </div>
-
-
-
-
-
-
