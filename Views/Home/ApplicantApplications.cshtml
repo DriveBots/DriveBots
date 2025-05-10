@@ -2,63 +2,107 @@
     ViewData["Title"] = "Submit Application";
 }
 
-<div class="container mt-5">
-    <div class="bg-dark text-white p-5 rounded shadow text-center">
-        <h2 class="mb-4">Submit New Application</h2>
+<div class="sidebar">
+
+    @Html.ActionLink(
+            linkText: "Home",
+            actionName: "Applicant",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Applications",
+            actionName: "Applications",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Appointments",
+            actionName: "Appointments",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Payments",
+            actionName: "Payment",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Settings",
+            actionName: "ApplicantSettings",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+</div>
+
+<div class="search-container">
+    <input type="text" placeholder="Search..." class="search-box" />
+    <button type="submit" class="search-button">Search</button>
+</div>
+
+
+<div class="application-container">
+    <div class="application-content">
+        <h2 class="form-title">Submit New Application</h2>
         <form method="post">
-            <div class="mb-3 text-start">
+            <div class="form-group">
                 <label class="form-label">Application Type</label>
-                <select class="form-select">
-                    <option selected disabled>-- Select Type --</option>
+                <select class="form-field">
+                    <option selected disabled> Select Type </option>
                     <option>Driver’s License</option>
                     <option>License Renewal</option>
                 </select>
             </div>
 
-            <div class="mb-3 text-start">
+            <div class="form-group">
                 <label class="form-label">Preferred Date</label>
-                <input type="date" class="form-control" />
+                <input type="date" class="form-field" />
             </div>
 
-            <div class="mb-3 text-start">
+            <div class="form-group">
                 <label class="form-label">Preferred Location</label>
-                <select class="form-select">
+                <select class="form-field">
                     <option selected disabled>-- Select Location --</option>
-                        <option value="bbs_mall">BBS mall</option>
-                        <option value="bobonong">Bobonong</option>
-                        <option value="fairgrouds_mall">Fairgrounds Mall</option>
-                        <option value="francistown_gold_valley">Francistown Gold Valley</option>
-                        <option value="francistown_vts">Francistown VTS</option>
-                        <option value="ghanzi">Ghanzi</option>
-                        <option value="gumare">Gumare</option>
-                        <option value="jwaneng">Jwaneng</option>
-                        <option value="kang">Kang</option>
-                        <option value="kasane">Kasane</option>
-                        <option value="kanye">Kanye</option>
-                        <option value="letlhakane">Letlhakane</option>
-                        <option value="lobatse">Lobatse</option>
-                        <option value="mahalapye">Mahalapye</option>
-                        <option value="masunga">Masunga</option>
-                        <option value="maun">Maun</option>
-                        <option value="mochudi">Mochudi</option>
-                        <option value="molepolole">Molepolole</option>
-                        <option value="oldsupplies">Old Supplies</option>
-                        <option value="palapye">Palapye</option>
-                        <option value="ramotswa">Ramotswa</option>
-                        <option value="selibe_phikwe">Selibe Phikwe</option>
-                        <option value="serowe">Serowe</option>
-                        <option value="shakawe">Shakawe</option>
-                        <option value="tsabong">Tsabong</option>
-                        <option value="tutume">Tutume</option>
-                    </select>
+                    <option value="bbs_mall">BBS mall</option>
+                    <option value="bobonong">Bobonong</option>
+                    <option value="fairgrouds_mall">Fairgrounds Mall</option>
+                    <option value="francistown_gold_valley">Francistown Gold Valley</option>
+                    <option value="francistown_vts">Francistown VTS</option>
+                    <option value="ghanzi">Ghanzi</option>
+                    <option value="gumare">Gumare</option>
+                    <option value="jwaneng">Jwaneng</option>
+                    <option value="kang">Kang</option>
+                    <option value="kasane">Kasane</option>
+                    <option value="kanye">Kanye</option>
+                    <option value="letlhakane">Letlhakane</option>
+                    <option value="lobatse">Lobatse</option>
+                    <option value="mahalapye">Mahalapye</option>
+                    <option value="masunga">Masunga</option>
+                    <option value="maun">Maun</option>
+                    <option value="mochudi">Mochudi</option>
+                    <option value="molepolole">Molepolole</option>
+                    <option value="oldsupplies">Old Supplies</option>
+                    <option value="palapye">Palapye</option>
+                    <option value="ramotswa">Ramotswa</option>
+                    <option value="selibe_phikwe">Selibe Phikwe</option>
+                    <option value="serowe">Serowe</option>
+                    <option value="shakawe">Shakawe</option>
+                    <option value="tsabong">Tsabong</option>
+                    <option value="tutume">Tutume</option>
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-success mt-2">Submit Application</button>
+            <button type="submit" class="submit-button">Submit Application</button>
         </form>
 
-        <h2 class="mt-5">Your Previous Applications</h2>
-        <table class="table table-dark table-bordered mt-3">
+        <h2 class="table-title">Your Previous Applications</h2>
+        <table class="application-table">
             <thead>
                 <tr>
                     <th>Type</th>
@@ -84,5 +128,3 @@
         </table>
     </div>
 </div>
-
-
