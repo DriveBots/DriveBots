@@ -415,24 +415,7 @@ header p {
         }
 
     @media (max-width: 768px) {
-        .sidebar {
-            position: relative;
-            width: 100%;
-            height: auto;
-            padding: 10px 20px;
-            box-shadow: none;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start; /* 👈 Ensures left alignment */
-            text-align: left;
-        }
-
-            .sidebar a {
-                width: 100%;
-                font-size: 14px;
-                padding: 10px 15px;
-            }
+       
 
         .main,
         .user-management,
@@ -490,8 +473,4 @@ header p {
         padding: 10px;
     }
 
-    .sidebar a {
-        font-size: 14px;
-        padding: 10px;
-    }
 }
