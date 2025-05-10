@@ -1,0 +1,88 @@
+@{
+    ViewData["Title"] = "Submit Application";
+}
+
+<div class="container mt-5">
+    <div class="bg-dark text-white p-5 rounded shadow text-center">
+        <h2 class="mb-4">Submit New Application</h2>
+        <form method="post">
+            <div class="mb-3 text-start">
+                <label class="form-label">Application Type</label>
+                <select class="form-select">
+                    <option selected disabled>-- Select Type --</option>
+                    <option>Driver’s License</option>
+                    <option>License Renewal</option>
+                </select>
+            </div>
+
+            <div class="mb-3 text-start">
+                <label class="form-label">Preferred Date</label>
+                <input type="date" class="form-control" />
+            </div>
+
+            <div class="mb-3 text-start">
+                <label class="form-label">Preferred Location</label>
+                <select class="form-select">
+                    <option selected disabled>-- Select Location --</option>
+                        <option value="bbs_mall">BBS mall</option>
+                        <option value="bobonong">Bobonong</option>
+                        <option value="fairgrouds_mall">Fairgrounds Mall</option>
+                        <option value="francistown_gold_valley">Francistown Gold Valley</option>
+                        <option value="francistown_vts">Francistown VTS</option>
+                        <option value="ghanzi">Ghanzi</option>
+                        <option value="gumare">Gumare</option>
+                        <option value="jwaneng">Jwaneng</option>
+                        <option value="kang">Kang</option>
+                        <option value="kasane">Kasane</option>
+                        <option value="kanye">Kanye</option>
+                        <option value="letlhakane">Letlhakane</option>
+                        <option value="lobatse">Lobatse</option>
+                        <option value="mahalapye">Mahalapye</option>
+                        <option value="masunga">Masunga</option>
+                        <option value="maun">Maun</option>
+                        <option value="mochudi">Mochudi</option>
+                        <option value="molepolole">Molepolole</option>
+                        <option value="oldsupplies">Old Supplies</option>
+                        <option value="palapye">Palapye</option>
+                        <option value="ramotswa">Ramotswa</option>
+                        <option value="selibe_phikwe">Selibe Phikwe</option>
+                        <option value="serowe">Serowe</option>
+                        <option value="shakawe">Shakawe</option>
+                        <option value="tsabong">Tsabong</option>
+                        <option value="tutume">Tutume</option>
+                    </select>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success mt-2">Submit Application</button>
+        </form>
+
+        <h2 class="mt-5">Your Previous Applications</h2>
+        <table class="table table-dark table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Driver’s License</td>
+                    <td>2025-04-15</td>
+                    <td>Gaborone</td>
+                    <td>Approved</td>
+                </tr>
+                <tr>
+                    <td>License Renewal</td>
+                    <td>2025-03-25</td>
+                    <td>Francistown</td>
+                    <td>Pending</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
