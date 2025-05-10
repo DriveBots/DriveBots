@@ -24,6 +24,7 @@ public class Class1
         catch (Exception ex)
         {
             throw ex;
+
         }
     }
 
