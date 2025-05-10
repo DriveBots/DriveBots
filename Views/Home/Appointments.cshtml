@@ -4,68 +4,86 @@
     ViewData["Title"] = "Appointments";
 }
 
+<div class="appointment-wrapper" style="display: flex;">
+
+
+    <div class="sidebar" style="width: 200px; padding: 20px; background-color:#3a3f44;">
+         
+        @Html.ActionLink("Home", "Applicant", "Home")
+        <br />
+        @Html.ActionLink("Applications", "Applications", "Home")
+        <br />
+        @Html.ActionLink("Appointments", "Appointments", "Home")
+        <br />
+        @Html.ActionLink("Payments", "Payment", "Home")
+        <br />
+        @Html.ActionLink("Settings", "ApplicantSettings", "Home")
+    </div>
+
 <div class="appointment-container">
     <h1 class="appointment-title">Book an Appointment</h1>
 
-    <form asp-action="Appointment" asp-controller="Home" method="post" class="appointment-form">
-            <div>
-                <input asp-for="FirstName" placeholder="First Name" />
-            </div>
+    <form asp-action="Appointment" asp-controller="Appointment" method="post" class="appointment-form">
+        <div>
+            <input asp-for="FirstName" placeholder="First Name" />
+        </div>
 
-            <div>
-                <input asp-for="LastName" placeholder="Last Name" />
-            </div>
+        <div>
+            <input asp-for="LastName" placeholder="Last Name" />
+        </div>
 
-            <div>
-                <input asp-for="Email" placeholder="Email" />
-            </div>
+        <div>
+            <input asp-for="Email" placeholder="Email" />
+        </div>
 
-            <div>
-                <select asp-for="AppointmentType">
-                    <option value="eye_test">Eye Test</option>
-                    <option value="road_test">Road Test</option>
-                    <option value="yard_test">Yard Test</option>
-                    <option value="road_worth">Road worth</option>
-                    <option value="prdp">PrDP</option>
-                    <option value="vehicle_registration">Vehicle Registration</option>
-                </select>
-            </div>
+        <div>
+            <select asp-for="AppointmentType">
+                <option value="eye_test">Eye Test</option>
+                <option value="road_test">Road Test</option>
+                <option value="yard_test">Yard Test</option>
+                <option value="road_worth">Road worth</option>
+                <option value="prdp">PrDP</option>
+                <option value="vehicle_registration">Vehicle Registration</option>
+            </select>
+        </div>
 
-            <div>
-                <input asp-for="Date" type="date" />
-            </div>
+        <div>
+            <input asp-for="Date" type="date" />
+        </div>
 
-            <div>
-                <select asp-for="Location">
-                    <option value="bbs_mall">BBS mall</option>
-                    <option value="bobonong">Bobonong</option>
-                    <option value="fairgrouds_mall">Fairgrounds Mall</option>
-                    <option value="francistown_gold_valley">Francistown Gold Valley</option>
-                    <option value="francistown_vts">Francistown VTS</option>
-                    <option value="ghanzi">Ghanzi</option>
-                    <option value="gumare">Gumare</option>
-                    <option value="jwaneng">Jwaneng</option>
-                    <option value="kang">Kang</option>
-                    <option value="kasane">Kasane</option>
-                    <option value="kanye">Kanye</option>
-                    <option value="letlhakane">Letlhakane</option>
-                    <option value="lobatse">Lobatse</option>
-                    <option value="mahalapye">Mahalapye</option>
-                    <option value="masunga">Masunga</option>
-                    <option value="maun">Maun</option>
-                    <option value="mochudi">Mochudi</option>
-                    <option value="molepolole">Molepolole</option>
-                    <option value="oldsupplies">Old Supplies</option>
-                    <option value="palapye">Palapye</option>
-                    <option value="ramotswa">Ramotswa</option>
-                    <option value="selibe_phikwe">Selibe Phikwe</option>
-                    <option value="serowe">Serowe</option>
-                    <option value="shakawe">Shakawe</option>
-                    <option value="tsabong">Tsabong</option>
-                    <option value="tutume">Tutume</option>
-                </select>
-            </<div>
+        <div>
+            <select asp-for="Location">
+                <option value="bbs_mall">BBS mall</option>
+                <option value="bobonong">Bobonong</option>
+                <option value="fairgrouds_mall">Fairgrounds Mall</option>
+                <option value="francistown_gold_valley">Francistown Gold Valley</option>
+                <option value="francistown_vts">Francistown VTS</option>
+                <option value="ghanzi">Ghanzi</option>
+                <option value="gumare">Gumare</option>
+                <option value="jwaneng">Jwaneng</option>
+                <option value="kang">Kang</option>
+                <option value="kasane">Kasane</option>
+                <option value="kanye">Kanye</option>
+                <option value="letlhakane">Letlhakane</option>
+                <option value="lobatse">Lobatse</option>
+                <option value="mahalapye">Mahalapye</option>
+                <option value="masunga">Masunga</option>
+                <option value="maun">Maun</option>
+                <option value="mochudi">Mochudi</option>
+                <option value="molepolole">Molepolole</option>
+                <option value="oldsupplies">Old Supplies</option>
+                <option value="palapye">Palapye</option>
+                <option value="ramotswa">Ramotswa</option>
+                <option value="selibe_phikwe">Selibe Phikwe</option>
+                <option value="serowe">Serowe</option>
+                <option value="shakawe">Shakawe</option>
+                <option value="tsabong">Tsabong</option>
+                <option value="tutume">Tutume</option>
+            </select>
+            </div>
+        <div>
         <button type="submit" class="submit-btn">Book Appointment</button>
+        </div>
     </form>
 
     <h2>Your Upcoming Appointments</h2>
@@ -105,3 +123,11 @@
     }
 
 </div>
+
+               
+          
+                  
+
+    
+                   
+   
