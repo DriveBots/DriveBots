@@ -1115,3 +1115,17 @@ label {
     .search-button:hover {
         background-color: #287bc0;
     }
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    box-sizing: border-box;
+    background-color:grey;
+}
+
