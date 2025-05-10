@@ -3,23 +3,44 @@
 @{
     ViewData["Title"] = "Appointments";
 }
+<div class="sidebar">
 
-<div class="appointment-wrapper" style="display: flex;">
+    @Html.ActionLink(
+            linkText: "Home",
+            actionName: "Applicant",
+            controllerName: "Home",
+            routeValues: null
+            )
 
+    @Html.ActionLink(
+            linkText: "Applications",
+            actionName: "Applications",
+            controllerName: "Home",
+            routeValues: null
+            )
 
-    <div class="sidebar" style="width: 200px; padding: 20px; background-color:#3a3f44;">
-         
-        @Html.ActionLink("Home", "Applicant", "Home")
-        <br />
-        @Html.ActionLink("Applications", "Applications", "Home")
-        <br />
-        @Html.ActionLink("Appointments", "Appointments", "Home")
-        <br />
-        @Html.ActionLink("Payments", "Payment", "Home")
-        <br />
-        @Html.ActionLink("Settings", "ApplicantSettings", "Home")
-    </div>
+    @Html.ActionLink(
+            linkText: "Appointments",
+            actionName: "Appointments",
+            controllerName: "Home",
+            routeValues: null
+            )
 
+    @Html.ActionLink(
+            linkText: "Payments",
+            actionName: "Payment",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+    @Html.ActionLink(
+            linkText: "Settings",
+            actionName: "ApplicantSettings",
+            controllerName: "Home",
+            routeValues: null
+            )
+
+</div>
 <div class="appointment-container">
     <h1 class="appointment-title">Book an Appointment</h1>
 
