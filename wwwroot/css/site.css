@@ -1180,5 +1180,20 @@ select {
     cursor: pointer;
     margin-top: 1rem;
 
+.applications-background,
+.settings-background {
+    position: relative;
+    background-image: url('/images/db16.jpeg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    min-height: 100vh;
+    padding: 20px;
+    left: 120px;
+    margin-top: -16px;
+}
 
+.settings-container {
+    margin-left: 120px;
+}
 
