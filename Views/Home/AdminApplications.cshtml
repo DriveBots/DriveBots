@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Manage Applications";
 
     var applications = new[]
@@ -9,92 +9,84 @@
     };
 }
 
-<div class="container">
-    <div class="sidebar">
+<div class="applications-background">
+    <div class="container">
+        <div class="sidebar">
+            @Html.ActionLink(
+                     linkText: "Home",
+                     actionName: "Admin",
+                     controllerName: "Home",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
 
-        @Html.ActionLink(
-                 linkText: "Home",
-                 actionName: "Admin",
-                 controllerName: "Home",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
-        @Html.ActionLink(
-                 linkText: "Applications",
-                 actionName: "Applications",
-                 controllerName: "Home",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
+            @Html.ActionLink(
+                     linkText: "Applications",
+                     actionName: "Applications",
+                     controllerName: "Home",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
 
-        @Html.ActionLink(
-                 linkText: "Transaction",
-                 actionName: "Transaction",
-                 controllerName: "Home",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
-        @Html.ActionLink(
-                 linkText: "Report and Analytics",
-                 actionName: "ReportandAnalytics",
-                 controllerName: "Home",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
+            @Html.ActionLink(
+                     linkText: "Transaction",
+                     actionName: "Transaction",
+                     controllerName: "Home",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
 
-        @Html.ActionLink(
-                 linkText: "User Management",
-                 actionName: "Usermanagement",
-                 controllerName: "Home",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
-        @Html.ActionLink(
-                 linkText: "Settings",
-                 actionName: "AdminSettings",
-                 controllerName: "Home",
-                 routeValues: null,
-                 htmlAttributes: new { @class = "nav-item" }
-                 )
+            @Html.ActionLink(
+                     linkText: "User Management",
+                     actionName: "Usermanagement",
+                     controllerName: "Home",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
 
-    </div>
+            @Html.ActionLink(
+                     linkText: "Settings",
+                     actionName: "AdminSettings",
+                     controllerName: "Home",
+                     routeValues: null,
+                     htmlAttributes: new { @class = "nav-item" }
+                     )
 
-    <div class="search-container">
-        <input type="text" placeholder="Search..." class="search-box" />
-        <button type="submit" class="search-button">Search</button>
-    </div>
+        </div>
 
+        <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-box" />
+            <button type="submit" class="search-button">Search</button>
+        </div>
 
-    <div class="main-content">
-        <h1 class="page-title">Manage Applications</h1>
-        <p class="total-count">Total Applications: @applications.Length</p>
+        <div class="main-content">
+            <h1 class="page-title">Manage Applications</h1>
+            <p class="total-count">Total Applications: @applications.Length</p>
 
-        <table class="applications-table">
-            <thead>
-                <tr>
-                    <th>Applicant Name</th>
-                    <th>Application Type</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var app in applications)
-                {
+            <table class="applications-table">
+                <thead>
                     <tr>
-                        <td>@app.ApplicantName</td>
-                        <td>@app.ApplicationType</td>
-                        <td>@app.Status</td>
-                        <td>
-                            <button class="btn-approve" style="background-color:#d1ecf1; color:#0c5460;">Approve</button>
-                            <button class="btn-reject" style="background-color:#f8d7da; color:#721c24;">Reject</button>
-
-                        </td>
+                        <th>Applicant Name</th>
+                        <th>Application Type</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var app in applications)
+                    {
+                        <tr>
+                            <td>@app.ApplicantName</td>
+                            <td>@app.ApplicationType</td>
+                            <td>@app.Status</td>
+                            <td>
+                                <button class="btn-approve" style="background-color:#d1ecf1; color:#0c5460;">Approve</button>
+                                <button class="btn-reject" style="background-color:#f8d7da; color:#721c24;">Reject</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-    
-  
