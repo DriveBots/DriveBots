@@ -764,6 +764,7 @@ body {
     padding: 2rem;
     background-color: #2c2e33;
     border-radius: 10px;
+    margin-left: 150px;
 }
 
 .appointment-title {
@@ -1319,5 +1320,43 @@ select {
 
 .settings-container {
     margin-left: 120px;
+}
+
+.table-container {
+    margin-left: 100px; 
+    padding: 30px;
+    background-color: #2c2f33;
+    margin-top: 30px;
+}
+
+
+.applications-background,
+.settings-background,
+.payment-background,
+.appointments-background {
+    position: relative;
+    background-image: url('/images/db18.jpeg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    min-height: 100vh;
+    padding: 20px;
+    left: 120px;
+    margin-top: -16px;
+}
+
+.main-content{
+    margin-top:30px;
+}
+
+
+.btn-approve{
+    background-color:#d1ecf1;
+    color:#0c5460;
+}
+
+.btn-reject{
+    background-color:#f8d7da;
+    color:#721c24;
 }
 
