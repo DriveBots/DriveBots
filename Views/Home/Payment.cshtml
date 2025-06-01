@@ -1,8 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Payments";
+    Layout = "_applicantLayout";
 }
 
-<div class="payment-background">
+
   <div class="sidebar">
 
     @Html.ActionLink(
@@ -102,7 +103,7 @@
         <button type="submit" class="pay-btn">Submit Payment</button>
     </form>
   </div>
-</div
+
 @section Scripts {
     <script>
         function togglePaymentFields() {
