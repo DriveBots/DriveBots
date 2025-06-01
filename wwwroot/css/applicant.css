@@ -382,3 +382,12 @@ input, select {
     display: block;
     margin: 1.5rem auto 0 auto;
 }
+
+
+.table-container {
+    margin-left: 300px;
+    padding-left: 2rem;
+    margin-right: auto; 
+    padding-right: 20px; 
+    width: fit-content;
+}
